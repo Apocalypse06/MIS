@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HotelWorld</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="dist/css/bootstrap.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="dist/css/bootstrap-theme.css">
+
+    <link rel="stylesheet" href="dist/css/custom.css">
+
+    <link rel="stylesheet" href="dist/css/font-awesome-4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="dist/css/ionicons-2.0.1/css/ionicons.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">HotelWorld</a>
+        </div>
+        <ul class="nav navbar-left navbar-nav">
+        </ul>
+        <ul class="nav navbar-nav navbar-right" style="padding-right: 20px">
+            <li><a href="#">Home</a></li>
+            <li><a href="hotel_infos.html">Hotels</a></li>
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                   aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-address-card nav-icon"
+                                       aria-hidden="true"></i>个人信息
+                    </a></li>
+                    <li><a href="index.html"><i class="fa fa-reply nav-icon" aria-hidden="true"></i>登出
+                    </a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!--已有会员信息-->
+    <div class="panel panel-default" id="membership" style="display: none;">
+        <div class="panel-heading">
+            <h3 class="panel-title">会员信息</h3>
+        </div>
+        <div class="panel-body row">
+            <div class="col-lg-8">
+                <div class="block-center">
+                    <div class="membership-info-item membership-info-left">
+                        <div>
+                            <img src="img/star.png" class="membership-info-left-star">
+                        </div>
+                        <div>
+                            <span class=" label label-warning">金牌会员</span>
+                            <span class=" label label-default">L<span id="level">3</span></span>
+                        </div>
+                    </div>
+                    <div class="membership-info-item">
+                        <div>
+                            <img src="img/user1.png" class=" user-image img-circle ">
+                        </div>
+                        <div style="margin-bottom: 10px">
+                            <span class="label label-info"
+                                  style="font-size: 10px;" id="email">835168932@qq.com
+                            </span>
+                        </div>
+                        <div>
+                            <span class="label label-warning" style="font-size: 20px" id="score">积分4562</span>
+                        </div>
+                    </div>
+                    <div class="membership-info-item membership-info-right">
+                        <div>
+                            <img src="img/rank.png" class="membership-info-left-rank">
+
+                        </div>
+                        <div>
+                            <span class="label label-success">排名<span id="rank">5158</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="user-info-item">
+                    <label>会员卡号:</label>
+                    <label id="cardNum">1564896</label>
+                </div>
+                <div class="user-info-item">
+                    <label>银行卡号:</label>
+                    <label id="bankNum">123456</label>
+
+                </div>
+                <div class="user-info-item">
+                    <label>开通日期:</label>
+                    <label id="createDate">2016-12-01</label>
+                </div>
+                <div class="user-info-item">
+                    <label>上次支付会费日期:</label>
+                    <label id="lastPayDate">2016-12-02</label>
+                </div>
+                <div class="user-info-item">
+                    <label>会员状态:</label>
+                    <label class="label label-success" id="state">正常</label>
+                    <a href="#" onclick="membership_option()"
+                       class="label label-success " style="size: 5px">
+                        <i class="fa fa-refresh" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="user-info-item">
+                    <label>可用积分:</label>
+                    <label id="availableScore"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--未成为会员-->
+    <div class="panel panel-default" id="register" style="display: none;">
+        <div class="panel-heading">
+            <h3 class="panel-title">会员信息</h3>
+        </div>
+        <div class="panel-body row block-center">
+            <p>您还不是会员</p>
+            <button class="btn btn-success" data-toggle="modal" data-target="#registerMembership">
+                点击申请
+            </button>
+        </div>
+    </div>
+    <!--预约信息-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">预约信息</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <td>#</td>
+                    <td>入住时间</td>
+                    <td>离店时间</td>
+                    <td>酒店</td>
+                    <td>房间类型</td>
+                    <td>价格</td>
+                    <td>状态</td>
+                </tr>
+                </thead>
+                <tbody id="reservationInfos">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <textarea style="display: none;" id="reservation_template">
+        <tr id="$id$" onclick="showReservation(this.id)">
+                    <td>$index$</td>
+                    <td>$fromDate$</td>
+                    <td>$toDate$</td>
+                    <td>$name$</td>
+                    <td><label class="label label-primary">$roomType$</label></td>
+                    <td>$price$</td>
+                    <td>$state$</td>
+                </tr>
+    </textarea>
+
+    <textarea style="display: none" id="success_reservation">
+        <span class="label label-info">待入住</span>
+    </textarea>
+    <textarea style="display: none" id="cancel_reservation">
+        <span class="label label-danger">已取消</span>
+    </textarea>
+    <textarea style="display: none" id="used_reservation">
+        <span class="label label-success">入住成功</span>
+    </textarea>
+
+
+</div>
+
+<!--预约信息-->
+<div class="modal fade" tabindex="-1" role="dialog" id="reservationInfo">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">预约信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="reservation-info-modal">
+                    <div>
+                        <img src="img/hotel1.png">
+                        <h2 id="modal_hotel_name">南京酒店</h2>
+                    </div>
+                    <div>
+                        <label class="reservation-info-modal-label">入住时间</label>
+                        <label id="checkInDate">2016-03-05</label>
+                    </div>
+                    <div>
+                        <label class="reservation-info-modal-label">离店时间</label>
+                        <label id="checkOutDate">2016-03-06</label>
+                    </div>
+                    <div>
+                        <label class="reservation-info-modal-label">房间类型</label>
+                        <label><a class="label label-primary" id="roomType">单人间</a></label>
+                    </div>
+                    <div>
+                        <label class="reservation-info-modal-label">联系人</label>
+                        <label id="name">杨雁飞</label>
+                    </div>
+                    <div>
+                        <label class="reservation-info-modal-label">联系方式</label>
+                        <label id="phoneNum">153675985</label>
+                    </div>
+                    <div>
+                        <label class="reservation-info-modal-label">状态</label>
+                        <label id="modal_state">待入住</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button role="button" class="btn btn-primary pull-left" id="cancel"
+                        data-dismiss="modal" onclick="cancelReservation()">
+                    取消预约
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--注册会员-->
+<div class="modal fade" tabindex="-1" role="dialog" id="registerMembership">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">申请成为会员</h4>
+            </div>
+            <div class="modal-body">
+                <p>注：参加会员每年需缴纳1000元会费</p>
+                <form>
+                    <div class="form-group">
+                        <label for="registerBankNum">银行卡号</label>
+                        <input type="text" class="form-control"
+                               id="registerBankNum"
+                               placeholder="银行卡号" name="password"
+                               onfocus=""
+                               value="">
+                    </div>
+                </form>
+                <div class="modal-footer" style="padding-bottom: 0">
+                    <button type="button" class="btn btn-success" onclick="registerMembership()"
+                            data-dismiss="modal">提交
+                    </button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!--更改银行卡号-->
+<div class="modal fade" tabindex="-1" role="dialog" id="stateChange">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">更改状态</h4>
+            </div>
+            <div class="modal-body">
+                <div class="center-block" style="padding-left: 35%">
+                    <button type="button" class="btn btn-warning" style="margin-right: 50px"
+                            data-dismiss="modal" onclick="stateOption()" id="option">暂停
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消
+                    </button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<!--提示框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="tips">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Tips</h4>
+            </div>
+            <div class="modal-body">
+                <p id="tips-content">One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+</body>
+<script src="dist/js/jquery-3.1.1.js"></script>
+<script src="dist/js/jquery.form.js"></script>
+<script src="dist/js/jquery.cookie.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="dist/js/bootstrap.js"></script>
+
+<script src="dist/js/custom.js"></script>
+
+<script>
+    var global_reservationInfos;
+    var currentId;
+    var dataArray = getTokenArray();
+    $(document).ready(function () {
+        //加载用户和会员信息
+        $.ajax({
+            url: '/api/auth/user/info',
+            dataType: 'json',
+            data: dataArray,
+            type: 'POST',
+            success: function (res) {
+                if (res.retCode == successCode) {
+                    var obj = res.retContent;
+                    $('#email').html(obj.email)
+                    $('#bankNum').html(obj.bankNum)
+                } else {
+                    showTips(res.retMess)
+                }
+            },
+            error: function () {
+                showTips("Error")
+            }
+        })
+        $.ajax({
+            url: '/api/auth/membership/info',
+            dataType: 'json',
+            data: dataArray,
+            type: 'POST',
+            success: function (res) {
+                if (res.retCode == successCode) {
+                    var obj = res.retContent;
+                    if (typeof(obj) == 'undefined') {
+                        $('#register').css('display', 'block')
+                    } else {
+                        $('#membership').css('display', 'block')
+                        $('#cardNum').html(obj.carId)
+                        $('#createDate').html(obj.openDate)
+                        $('#score').html(obj.score)
+                        $('#level').html(obj.rank)
+                        $('#lastPayDate').html(obj.lastPayDate);
+                        $('#availableScore').html(obj.availableScore)
+                        switch (obj.state) {
+                            case 'NORMAL':
+                                $('#state').addClass('btn-success').html("正常");
+                                break;
+                            case 'PAUSE':
+                                $('#state').addClass('btn-warning').html("暂停");
+                        }
+                    }
+                } else {
+                    $('#register').css('display', 'block')
+                }
+            }
+        })
+        updateReservations()
+
+
+    })
+
+    function updateReservations() {
+        var res_template = $('#reservation_template').val();
+        var sucess_template = $('#success_reservation').val();
+        var cancel_template = $('#cancel_reservation').val();
+        var used_template = $('#used_reservation').val();
+
+        //加载预约信息
+        $.ajax({
+            url: '/api/auth/membership/reservationInfo',
+            data: dataArray,
+            dataType: 'json',
+            type: 'POST',
+            success: function (res) {
+                if (res.retCode == successCode) {
+                    var reservations = res.retContent;
+                    global_reservationInfos = reservations;
+                    var show_res = []
+                    var i = 1;
+                    reservations.forEach(function (reservation) {
+                        var state;
+                        switch (reservation.state) {
+                            case '待入住':
+                                state = sucess_template;
+                                break;
+                            case '已取消':
+                                state = cancel_template;
+                                break;
+                            case '成功入住':
+                                state = used_template;
+                                break;
+                        }
+                        show_res.push(
+                                res_template.replace('$id$', reservation.reservationId)
+                                        .replace('$index$', i++)
+                                        .replace('$fromDate$', reservation.fromDate)
+                                        .replace('$toDate$', reservation.toDate)
+                                        .replace('$name$', reservation.hotelName)
+                                        .replace('$roomType$', reservation.roomType)
+                                        .replace('$price$', reservation.price)
+                                        .replace('$state$', state)
+                        );
+                    });
+                    $('#reservationInfos').html(show_res.join(''))
+                }
+                else {
+                }
+            },
+            error: function (res) {
+                showTips("error")
+            }
+        })
+    }
+
+    function showReservation(id) {
+        currentId = id;
+        global_reservationInfos.forEach(function (reservation) {
+            if (reservation.reservationId == id) {
+                $('#modal_hotel_name').html(reservation.hotelName)
+                $('#checkInDate').html(reservation.fromDate)
+                $('#checkOutDate').html(reservation.toDate)
+                $('#roomType').html(reservation.roomType)
+                $('#name').html(reservation.name)
+                $('#phoneNum').html(reservation.phoneNum)
+                $('#modal_state').html(reservation.state)
+                if (reservation.state == '待入住')
+                    $('#cancel').css('display', 'inline')
+                else
+                    $('#cancel').css('display', 'none')
+                $('#reservationInfo').modal()
+            }
+        })
+    }
+
+    function cancelReservation() {
+        var data = [];
+        addData(data, 'token', getToken);
+        addData(data, 'reservationId', currentId);
+        $.ajax({
+            url: '/api/auth/membership/cancelReservation',
+            data: data,
+            dataType: 'json',
+            type: 'POST',
+            success: function (res) {
+                if (res.retCode == successCode) {
+                    showTips("取消成功")
+                    setTimeout(updateReservations, 1500)
+                } else {
+                    showTips(res.retMess)
+                }
+            },
+            error: function () {
+                showTips("Error")
+            }
+        })
+    }
+
+    function stateOption() {
+        switch ($('#state').html()) {
+            case '正常':
+                var url = '/api/auth/membership/pause'
+                var reMess = '暂停成功'
+                break;
+            case '暂停':
+                url = '/api/auth/membership/pay'
+                reMess = '开通成功'
+                break;
+        }
+        $.ajax({
+            url: url,
+            data: dataArray,
+            dataType: 'json',
+            type: 'POST',
+            success: function (res) {
+                retCallBack(res, function (content) {
+                    showTips(reMess)
+                    setTimeout(function () {
+                        window.location.href = '/normal_user_benchmark.html'
+                    }, 1500)
+                })
+            }
+        })
+    }
+
+    function registerMembership() {
+        var data = getTokenArray()
+        addData(data, 'bankNum', $('#registerBankNum').val())
+        $.ajax({
+            url: '/api/auth/membership/register',
+            data: data,
+            dataType: 'json',
+            type: 'POST',
+            success: function (res) {
+                retCallBack(res, function (content) {
+                    showTips("更新成功");
+                    lateRefresh('normal_user_benchmark.html')
+                })
+            }
+        })
+    }
+    function membership_option() {
+        switch ($('#state').html()) {
+            case '正常':
+                $('#option').removeClass('btn-success').addClass('btn-warning').html('暂停');
+                break;
+            case '暂停':
+                $('#option').removeClass('btn-warning').addClass('btn-success').html('开通');
+                break;
+        }
+        $('#stateChange').modal();
+    }
+</script>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/api/user/login" id="form1">
+    <input type="text" name="username" placeholder="username"/>
+    <input type="password" name="password" placeholder="password"/>
+    <button id="submit">submit</button>
+</form>
+
+<script src="dist/js/jquery-3.1.1.js"></script>
+<script src="dist/js/jquery.form.js"></script>
+<script src="dist/js/jquery.cookie.js"></script>
+<script>
+    $('#submit').click(function () {
+        $('#form1').ajaxForm({
+            success: showResponse,
+            dateType: "json",
+            timeout: 3000,
+        })
+    })
+    function showResponse(responseText, statusText) {
+        var a = responseText
+        console.log(a['retMess']);
+    }
+</script>
+</body>
+</html>
+

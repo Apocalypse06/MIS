@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HotelWorld</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="dist/css/bootstrap.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="dist/css/bootstrap-theme.css">
+
+    <link rel="stylesheet" href="dist/css/custom.css">
+
+    <link rel="stylesheet" href="dist/css/font-awesome-4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="dist/css/ionicons-2.0.1/css/ionicons.css">
+
+    <link rel="stylesheet" href="dist/css/bootstrap-datetimepicker.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">HotelWorld</a>
+        </div>
+        <ul class="nav navbar-left navbar-nav">
+        </ul>
+        <ul class="nav navbar-nav navbar-right" style="padding-right: 20px">
+            <li><a href="normal_user_benchmark.html">Home</a></li>
+            <li><a href="#">Hotels</a></li>
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                   aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="normal_user_benchmark.html"><i class="fa fa-address-card nav-icon"
+                                       aria-hidden="true"></i>个人信息
+                    </a></li>
+                    <li><a href="index.html"><i class="fa fa-reply nav-icon" aria-hidden="true"></i>登出
+                    </a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <!--日期组件-->
+    <form class="form-inline" id="hotel_query">
+        <div class="form-group">
+            <label class="label label-primary" for="start">入住日期</label>
+            <input type="text" class="form-control" id="start" name="startDate">
+        </div>
+        <div class="form-group">
+            <label class="label label-primary" for="end">退房日期</label>
+            <input type="text" class="form-control" id="end" name="endDate">
+        </div>
+        <div class="form-group">
+            <label class="label label-primary" for="end">酒店名</label>
+            <input type="text" class="form-control" id="name" name="hotelName">
+        </div>
+        <label class="btn btn-primary" onclick="showHotels()">搜索</label>
+    </form>
+
+    <div class="list-group" id="hotelinfos">
+    </div>
+
+    <textarea id="hotel_info_template" style="display: none">
+            <a class="list-group-item" id="$id$" onclick="reservation(this.id)">
+            <div class="row">
+                <div class="col-lg-3 block-center hotel-item-info">
+                    <img src="img/hotel1.png" style="height: auto">
+                </div>
+                <div class="col-lg-7">
+                    <div class="hotel-item-info-title">
+                        <label class="label label-info hotel-item-info-title-name">$name$</label>
+                        <label class="label label-warning">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-half" aria-hidden="true"></i>
+                        </label>
+                    </div>
+                    <div class="hotel-item-info-description">
+                        $description$
+                    </div>
+                    <div class="hotel-item-info-address">
+                        <label>
+                            <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                        </label>
+                        <label>$address$</label>
+                    </div>
+                    <div>
+                        <label class="label label-default">房间类型</label>
+                        $roomType$
+                    </div>
+                </div>
+                <div class="col-lg-2 hotel-item-price">
+                    <div class=" hotel-item-price-item">
+                        <label>
+                            <span class="hotel-item-price-price"><sup>￥</sup>$price$
+                                <sub style="font-size: 13px">起</sub></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </a>
+        </textarea>
+    <textarea id="room_type_template" style="display: none;">
+            <label class="label label-primary">$roomType$</label>
+        </textarea>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="reservation">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="hotelName">南京酒店</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form id="book_form">
+                        <div class="form-group   form-inline">
+                            <label for="checkInDate"
+                                   class="hotel-reservation-form-label">入住日期</label>
+                            <input type="text" class="form-control"
+                                   id="checkInDate"
+                                   name="fromDate"
+                                   onfocus=""
+                                   value="">
+                        </div>
+                        <div class="form-group   form-inline">
+                            <label for="checkOutDate"
+                                   class="hotel-reservation-form-label">离店日期</label>
+                            <input type="text" class="form-control"
+                                   id="checkOutDate"
+                                   name="toDate"
+                                   onfocus=""
+                                   value="">
+                        </div>
+                        <div class="form-group form-inline">
+                            <label for="roomType" class="hotel-reservation-form-label">房间类型</label>
+                            <select class="form-control" id="roomType" name="roomType">
+                            </select>
+                        </div>
+                        <div class="form-group  form-inline">
+                            <label for="roomPerson" class="hotel-reservation-form-label">入住人</label>
+                            <input type="text" class="form-control"
+                                   id="roomPerson"
+                                   name="name"
+                                   onfocus=""
+                                   value="">
+                        </div>
+                        <div class="form-group  form-inline">
+                            <label for="contact" class="hotel-reservation-form-label">联系方式</label>
+                            <input type="text" class="form-control"
+                                   id="contact"
+                                   name="phoneNum"
+                                   onfocus=""
+                                   value="">
+                        </div>
+                    </form>
+                    <div class="modal-footer" style="padding-bottom: 0">
+                        <button type="button" class="btn btn-success" data-dismiss="modal"
+                                onclick="bookRoom()">提交
+                        </button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+    <!--提示框-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="tips">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Tips</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="tips-content">One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+</div>
+</body>
+<script src="dist/js/jquery-3.1.1.js"></script>
+<script src="dist/js/jquery.form.js"></script>
+<script src="dist/js/jquery.cookie.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="dist/js/bootstrap.js"></script>
+
+<script src="dist/js/bootstrap-datetimepicker.js"></script>
+<script src="dist/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="dist/js/custom.js"></script>
+<script>
+    var currentId;
+    $('#start').datetimepicker({
+        minView: "month", //选择日期后，不会再跳转去选择时分秒
+        language: 'zh-CN',
+        format: 'yyyy-mm-dd',
+        autoclose: 1
+    });
+    $('#end').datetimepicker({
+        minView: "month", //选择日期后，不会再跳转去选择时分秒
+        language: 'zh-CN',
+        format: 'yyyy-mm-dd',
+        autoclose: 1
+    });
+    $('#checkInDate').datetimepicker({
+        minView: "month", //选择日期后，不会再跳转去选择时分秒
+        language: 'zh-CN',
+        format: 'yyyy-mm-dd',
+        autoclose: 1
+    });
+    $('#checkOutDate').datetimepicker({
+        minView: "month", //选择日期后，不会再跳转去选择时分秒
+        language: 'zh-CN',
+        format: 'yyyy-mm-dd',
+        autoclose: 1
+    });
+
+
+    $(document).ready(function () {
+        showHotels()
+    })
+
+    function showHotels() {
+        var data = $('#hotel_query').serializeArray()
+        var hotel_temp = $('#hotel_info_template').val();
+        var room_type_temp = $('#room_type_template').val();
+        $.ajax({
+            url: '/api/hotel/query',
+            data: data,
+            dataType: 'json',
+            type: 'POST',
+            success: function (res) {
+                if (res.retCode == successCode) {
+                    var li = res.retContent;
+                    if (typeof (li) == 'undefined' || li.length == 0) {
+                        $('#hotelinfos').html("暂时没有符合条件的酒店信息")
+                    } else {
+                        var hotelInfos = [];
+                        li.forEach(function (hotel) {
+                            var rt = [];
+                            hotel.roomTypes.forEach(function (roomType) {
+                                rt.push(room_type_temp.replace('$roomType$', roomType));
+                            })
+                            hotelInfos.push(hotel_temp.replace('$id$', hotel.hotelId)
+                                    .replace('$name$', hotel.hotelName)
+                                    .replace('$description$', hotel.hotelDescription)
+                                    .replace('$address$', hotel.hotelAddress)
+                                    .replace('$price$', hotel.startPrice)
+                                    .replace('$roomType$', rt.join('')))
+                        })
+                        $('#hotelinfos').html(parseDom(hotelInfos.join('')))
+                    }
+                } else {
+
+                }
+            }
+        })
+    }
+
+    function reservation(hotelId) {
+        currentId = hotelId;
+        var data = []
+        addData(data, 'token', getToken());
+        addData(data, 'hotelId', hotelId);
+        $.ajax({
+            url: '/api/auth/hotel/info',
+            data: data,
+            dataType: 'json',
+            type: 'POST',
+            success: function (res) {
+                if (res.retCode == successCode) {
+                    var hotelInfo = res.retContent;
+                    $('#hotelName').html(hotelInfo.hotelName)
+                    var options = []
+                    hotelInfo.roomTypes.forEach(function (k) {
+                        options.push("<option>" + k + "</option>")
+                    })
+                    $('#roomType').html(options.join(''))
+                    $('#reservation').modal();
+                } else {
+                    showTips("error")
+                }
+            },
+            error: function (res) {
+                showTips("error")
+            }
+
+        })
+    }
+
+    function bookRoom() {
+        var data = $('#book_form').serializeArray();
+        addData(data, 'token', getToken())
+        addData(data, 'hotelId', currentId)
+        $.ajax({
+            url: '/api/auth/membership/book',
+            data: data,
+            dataType: 'json',
+            type: 'POST',
+            success: function (res) {
+                if (res.retCode == successCode) {
+                    showTips("预约成功")
+                } else {
+                    showTips("Error:" + res.retMess);
+                }
+            },
+            error: function () {
+                showTips("error")
+            }
+        })
+    }
+</script>
+
+</html>

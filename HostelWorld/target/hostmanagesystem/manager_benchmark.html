@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HotelWorld</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="dist/css/bootstrap.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="dist/css/bootstrap-theme.css">
+
+    <link rel="stylesheet" href="dist/css/custom.css">
+
+    <link rel="stylesheet" href="dist/css/font-awesome-4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="dist/css/ionicons-2.0.1/css/ionicons.css">
+
+    <link rel="stylesheet" href="dist/css/bootstrap-datetimepicker.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">HotelWorld</a>
+        </div>
+        <ul class="nav navbar-left navbar-nav">
+        </ul>
+        <ul class="nav navbar-nav navbar-right" style="padding-right: 20px">
+            <li><a href="#">主页</a></li>
+            <li><a href="manager_pass.html">审批</a></li>
+            <li><a href="manager_payout.html">结算</a></li>
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                   aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-address-card nav-icon" aria-hidden="true"></i>
+                            营业信息
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html" onclick="setToken('')"><i class="fa fa-reply nav-icon"
+                                                                       aria-hidden="true"></i>
+                            登出
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+
+    <!--酒店信息-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">酒店信息</h3>
+        </div>
+        <div class="panel-body hotel-home-panel">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <td>酒店号</td>
+                    <td>酒店名</td>
+                    <td>总房间数</td>
+                    <td>当前入住数</td>
+                    <td>入住率</td>
+                </tr>
+                </thead>
+                <tbody id="hotelroominfo">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--预定、消费信息-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">会员信息</h3>
+        </div>
+        <div class="panel-body manager-home-panel">
+            <div class="row">
+                <div class="col-lg-6">
+                    <label>会员总数</label>
+                    <label class="member-first-label manager-member-content"
+                           id="totalMember"></label>
+                </div>
+                <div>
+                    <label>总消费量</label>
+                    <label id="totalConsume" class="manager-member-content"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <label>平均消费</label>
+                    <label id="aveConsume" class="member-first-label manager-member-content"></label>
+                </div>
+
+                <div>
+                    <label>最高消费</label>
+                    <label id="maxConsume" class="manager-member-content"></label>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <label>总预约数</label>
+                    <label id="totalReservation" class="member-first-label manager-member-content"></label>
+                </div>
+                <div>
+                    <label>预约入住成功数</label>
+                    <label id="successReservation" class="manager-member-content"></label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--财务状况-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">财务信息</h3>
+        </div>
+        <div class="panel-body hotel-home-panel">
+            <div id="chart" style="height: 300px;"></div>
+        </div>
+    </div>
+
+
+</div>
+
+<textarea id="hotelroom_info_template" style="display: none">
+    <tr>
+        <td>$hotelId$</td>
+        <td>$hotelName$</td>
+        <td>$totalRooms$</td>
+        <td>$leftRooms$</td>
+        <td>$radio$</td>
+    </tr>
+</textarea>
+
+
+<!--提示框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="tips">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Tips</h4>
+            </div>
+            <div class="modal-body">
+                <p id="tips-content">One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+</body>
+<script src="dist/js/jquery-3.1.1.js"></script>
+<script src="dist/js/jquery.form.js"></script>
+<script src="dist/js/jquery.cookie.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="dist/js/bootstrap.js"></script>
+
+<script src="dist/js/bootstrap-datetimepicker.js"></script>
+<script src="dist/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="dist/js/custom.js"></script>
+<script src="dist/js/echarts.min.js"></script>
+<script>
+    var tokenArray = getTokenArray()
+    var hotelroom_info_template = $('#hotelroom_info_template').val();
+
+    $(document).ready(function () {
+        loadHistoryInfo()
+        loadMemberStat()
+        loadFinancialInfo()
+    })
+
+    function loadMemberStat() {
+        customAjax('/api/auth/manager/memberstate', tokenArray, function (obj) {
+            $('#totalMember').html(obj.totalMemberNum)
+            $('#totalConsume').html(obj.totalConsume)
+            $('#aveConsume').html(obj.aveConsume.toFixed(2))
+            $('#maxConsume').html(obj.maxConsume)
+            $('#totalReservation').html(obj.totalReservationNum)
+            $('#successReservation').html(obj.successReservationNum)
+        })
+    }
+
+    function loadFinancialInfo() {
+        customAjax('/api/auth/manager/financial', tokenArray, function (infos) {
+            var dateData = getArray(infos, 'date')
+            var membershipIncome = getArray(infos, 'member_income')
+            var option = {
+
+                title: {
+                    text: '收入情况'
+                },
+                tooltip: {},
+                xAxis: {
+                    data: dateData
+                },
+                yAxis: {},
+                series: [{
+                    name: 'macd',
+                    type: 'line',
+                    data: membershipIncome,
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: '{c}元'
+                        }
+                    }
+                }]
+
+            }
+            var myChart = echarts.init(document.getElementById('chart'));
+            myChart.setOption(option);
+        })
+    }
+
+    function loadHistoryInfo() {
+        customAjax('/api/auth/manager/hotelroominfo', tokenArray, function (infos) {
+            var nodeList = []
+            infos.forEach(function (e) {
+                nodeList.push(
+                        hotelroom_info_template.replace('$hotelId$', e.hotelId)
+                                .replace('$hotelName$', e.hotelName)
+                                .replace('$totalRooms$', e.totalRoomNum)
+                                .replace('$leftRooms$', e.usedRoomNum)
+                                .replace('$radio$',
+                                        (e.usedRoomNum / (e.totalRoomNum + 0.00000001) * 100).toFixed(2) + '%')
+                )
+            })
+            $('#hotelroominfo').html(nodeList.join(""))
+        })
+    }
+</script>
+</html>

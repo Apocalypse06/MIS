@@ -1,0 +1,181 @@
+.back-img {
+    background-image: url(../../img/background.png);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 100%;
+    margin-top: 50px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+}
+
+.index-sign {
+    margin-top: 200px;
+    margin-right: 80px;
+    padding-top: 10px;
+    width: 600px;
+    align-content: center;
+}
+
+.nav-icon {
+    margin-right: 10px;
+}
+
+#tips-content {
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/*--------------------个人信息-------------------------*/
+.user-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 45%;
+}
+
+.user-info-item {
+    font-size: 18px;
+    margin-top: 10px;
+    vertical-align: middle;
+}
+
+.user-info-change {
+    float: right;
+    bottom: 10px;
+    position: relative;
+}
+
+.membership-info-item {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.membership-info-left {
+    padding-right: 80px;
+}
+
+.membership-info-left-star {
+    display: inline-block;
+    color: yellow;
+    font-size: 50px;
+    border-color: #0f0f0f;
+}
+
+.membership-info-left-rank {
+    display: inline-block;
+    color: yellow;
+    width: 95px;
+    border-color: #0f0f0f;
+    border-radius: 40%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.membership-info-right {
+    padding-left: 80px;
+}
+
+/*-----------------个人信息结束-------------------*/
+
+/*-----------------------预约信息------------------*/
+.reservation-info-modal {
+    font-size: 18px;
+}
+
+.reservation-info-modal-label {
+    margin-left: 50px;
+    width: 150px;
+}
+
+/*酒店信息*/
+.hotel-item-info {
+    display: inline-block;
+}
+
+.hotel-item-info-title {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.hotel-item-info-title-name {
+    font-size: 20px;
+}
+
+.hotel-item-info-description {
+    font-size: 17px;
+    font-weight: 700;
+    height: 90px;
+    margin-bottom: 15px;
+}
+
+.hotel-item-info img {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.hotel-item-price {
+    text-align: center;
+    height: 160px;
+    border-left: solid rgba(155, 155, 155, 0.3) 1px;
+}
+
+.hotel-item-price-item {
+    position: relative;
+    top: 35%;
+}
+
+.hotel-item-price-price {
+    color: red;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.hotel-reservation-form-label {
+    width: 100px;
+}
+
+.hotel-home-panel {
+    margin: 10px 15px 10px 15px;
+}
+
+.hotel-description-item {
+    margin: 10px 5px 10px 5px;
+}
+
+.hotel-description-item-name {
+    background-color: steelblue;
+    text-align: center;
+    color: white;
+    width: 75px;
+    border-radius: 30px;
+    font-size: 15px;
+}
+
+.hotel-description-item-content {
+    display: block;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.block-center {
+    display: block;
+    text-align: center;
+}
+
+.manager-home-panel {
+    padding: 10px 10% 10px 10%;
+    font-size: 20px;
+}
+
+.member-first-label {
+    margin-right: 120px;
+}
+
+.manager-member-content {
+    margin-left: 50px;
+    font-size: 25px;
+}

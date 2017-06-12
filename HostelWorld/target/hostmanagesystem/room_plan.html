@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HotelWorld</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="dist/css/bootstrap.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="dist/css/bootstrap-theme.css">
+
+    <link rel="stylesheet" href="dist/css/custom.css">
+
+    <link rel="stylesheet" href="dist/css/font-awesome-4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="dist/css/ionicons-2.0.1/css/ionicons.css">
+
+    <link rel="stylesheet" href="dist/css/bootstrap-datetimepicker.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">HotelWorld</a>
+        </div>
+        <ul class="nav navbar-left navbar-nav">
+        </ul>
+        <ul class="nav navbar-nav navbar-right" style="padding-right: 20px">
+            <li><a href="index.html">主页</a></li>
+            <li><a href="#">房间管理</a></li>
+            <li><a href="check_in_out.html">入离店</a></li>
+            <li><a href="hotel_statistics.html">统计信息</a></li>
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                   aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="index.html">
+                            <i class="fa fa-address-card nav-icon" aria-hidden="true"></i>
+                            酒店信息
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html" onclick="setToken('')">
+                            <i class="fa fa-reply nav-icon" aria-hidden="true"></i>
+                            登出
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">房间类型</h3>
+        </div>
+        <div class="panel-body row hotel-home-panel">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <td>房间类型</td>
+                    <td>标准人数</td>
+                    <td>描述</td>
+                    <td>开始日期</td>
+                    <td>结束日期</td>
+                    <td>当前房间数量</td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody id="roomTypes">
+
+                </tbody>
+            </table>
+            <button class="btn btn-success pull-right" data-toggle="modal" data-target="#rp_add">
+                新增类型
+            </button>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">房间信息</h3>
+        </div>
+        <div class="panel-body hotel-home-panel">
+            <form class="form-inline" id="hotel_query">
+                <div class="form-group">
+                    <label class="label label-primary" for="search_roomType">房间类型</label>
+                    <select class="form-control" id="search_roomType" name="roomType">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="label label-primary" for="search_roomState">房间状态</label>
+                    <select class="form-control" id="search_roomState" name="roomType">
+                        <option>全部</option>
+                        <option>空闲</option>
+                        <option>已入住</option>
+                    </select>
+                </div>
+                <label class="btn btn-primary" onclick="showHotels()">搜索</label>
+            </form>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <td>房间号</td>
+                    <td>类型</td>
+                    <td>价格</td>
+                    <td>状态</td>
+                </tr>
+                </thead>
+                <tbody id="rooms">
+
+                </tbody>
+            </table>
+            <button class="btn btn-success pull-right" data-target="#room_add" data-toggle="modal">
+                新增房间
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<textarea id="roomplan_template" style="display: none;">
+    <tr>
+        <td><label class=" label label-primary">$roomType$</label></td>
+        <td>$accommodations$</td>
+        <td>$description$</td>
+        <td>$fromDate$</td>
+        <td>$toDate$</td>
+        <td>$totalRoom$</td>
+        <td id="$p_id$"
+            onclick="deleteTips(this.id)"><i class="fa fa-times" aria-hidden="true"></i></td>
+    </tr>
+</textarea>
+
+<textarea id="actual_room_template" style="display: none">
+    <tr onclick="showTips('房间空闲！！')" id="$id$">
+        <td>$roomNum$</td>
+        <td><label class=" label label-primary">$roomType$</label></td>
+        <td>$price$</td>
+        <td>$state$</td>
+    </tr>
+</textarea>
+
+<textarea id="empty_room_template" style="display: none">
+    <span class="label label-success">空闲</span>
+</textarea>
+
+<textarea id="wait_checkin_template" style="display: none">
+    <span class="label label-success">待入住</span>
+</textarea>
+
+<textarea id="full_room_template" style="display: none">
+    <span class="label label-danger">已入住</span>
+</textarea>
+
+<!--增加房间计划-->
+<div class="modal fade" tabindex="-1" role="dialog" id="rp_add">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">更改信息</h4>
+            </div>
+            <div class="modal-body">
+                <form id="rp_add_form">
+                    <div class="form-group   form-inline">
+                        <label for="rp_add_roomType"
+                               class="hotel-reservation-form-label">房间类型</label>
+                        <input type="text" class="form-control"
+                               id="rp_add_roomType"
+                               name="type"
+                               onfocus=""
+                               value="">
+                    </div>
+                    <div class="form-group form-inline">
+                        <label for="rp_add_roomDes"
+                               class="hotel-reservation-form-label">房间描述</label>
+                        <textarea class="form-control"
+                                  id="rp_add_roomDes"
+                                  name="des" style="width:400px"></textarea>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label for="rp_add_roomDes"
+                               class="hotel-reservation-form-label">房间价格</label>
+                        <input class="form-control"
+                                  id="rp_add_roomPrice"
+                                  name="price" style="width:400px">
+                    </div>
+                    <div class="form-group   form-inline">
+                        <label for="rp_add_startDate"
+                               class="hotel-reservation-form-label">开始日期</label>
+                        <input type="text" class="form-control"
+                               id="rp_add_startDate"
+                               name="startDate"
+                               onfocus=""
+                               value="">
+                    </div>
+                    <div class="form-group   form-inline">
+                        <label for="rp_add_endDate"
+                               class="hotel-reservation-form-label">结束日期</label>
+                        <input type="text" class="form-control"
+                               id="rp_add_endDate"
+                               name="endDate"
+                               onfocus=""
+                               value="">
+                    </div>
+                    <div class="form-group   form-inline">
+                        <label for="rp_add_accommodations" class="hotel-reservation-form-label">入住人数
+                        </label>
+                        <input type="text" class="form-control"
+                               id="rp_add_accommodations"
+                               name="accommodations"
+                               onfocus=""
+                               value="">
+                    </div>
+                </form>
+                <div class="modal-footer" style="padding-bottom: 0">
+                    <button type="button" class="btn btn-success" data-dismiss="modal"
+                            onclick="addRoomPlan()">提交
+                    </button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!--增加房间-->
+<div class="modal fade" tabindex="-1" role="dialog" id="room_add">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">更改信息</h4>
+            </div>
+            <div class="modal-body">
+                <form id="room_add_form">
+                    <div class="form-group   form-inline">
+                        <label for="rp_add_roomType"
+                               class="hotel-reservation-form-label">房间号</label>
+                        <input type="text" class="form-control"
+                               id="room_add_num"
+                               name="roomNum"
+                               onfocus=""
+                               value="">
+                    </div>
+                    <div class="form-group   form-inline">
+                        <label for="rp_add_accommodations" class="hotel-reservation-form-label">
+                            房间类型
+                        </label>
+                        <select class="form-control" id="room_add_roomType" name="roomType">
+                        </select>
+                    </div>
+                </form>
+                <div class="modal-footer" style="padding-bottom: 0">
+                    <button type="button" class="btn btn-success" data-dismiss="modal"
+                            onclick="addRoom()">提交
+                    </button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<!--删除提示框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="deleteTips">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">提示</h4>
+            </div>
+            <div class="modal-body">
+                <p id="delete-tips">确定删除么？！将不可恢复！</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-left" data-dismiss="modal">取消
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        onclick="deleteRpPlan()">确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!--提示框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="tips">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Tips</h4>
+            </div>
+            <div class="modal-body">
+                <p id="tips-content">One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+</body>
+<script src="dist/js/jquery-3.1.1.js"></script>
+<script src="dist/js/jquery.form.js"></script>
+<script src="dist/js/jquery.cookie.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="dist/js/bootstrap.js"></script>
+
+<script src="dist/js/bootstrap-datetimepicker.js"></script>
+<script src="dist/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="dist/js/custom.js"></script>
+
+<script>
+    var types = []
+    var rp_id;
+    var dataArray = getTokenArray();
+    let room_plan_template = $('#roomplan_template').val();
+    let actual_room_template = $('#actual_room_template').val();
+    let empty_room_state = $('#empty_room_template').val();
+    let full_room_state = $('#full_room_template').val();
+    let states = [full_room_state, empty_room_state];
+    $(document).ready(function () {
+        $('#rp_add_startDate').datetimepicker({
+            minView: "month", //选择日期后，不会再跳转去选择时分秒
+            language: 'zh-CN',
+            format: 'yyyy-mm-dd',
+            autoclose: 1
+        });
+        $('#rp_add_endDate').datetimepicker({
+            minView: "month", //选择日期后，不会再跳转去选择时分秒
+            language: 'zh-CN',
+            format: 'yyyy-mm-dd',
+            autoclose: 1
+        });
+        loadRoomPlan()
+        loadRooms()
+    })
+
+    function loadRoomPlan() {
+        customAjax('/api/auth/room_plan/info', dataArray, function (infos) {
+            var nodeList = []
+            var selects = ["<option>全部</option>"]
+            types = []
+            infos.forEach(
+                    function (info) {
+                        types.push(info.roomType)
+                        selects.push("<option id='" + info.rpId + "'>" + info.roomType + "</option>")
+                        nodeList.push(room_plan_template
+                                .replace('$roomType$', info.roomType)
+                                .replace('$accommodations$', info.accommodations)
+                                .replace('$description$', info.description)
+                                .replace('$fromDate$', info.startDate)
+                                .replace('$toDate$', info.endDate)
+                                .replace('$totalRoom$', info.totalRoomNums)
+                                .replace('$p_id$', info.rpId))
+                    })
+            $('#search_roomType').html(selects.join(''))
+            $('#roomTypes').html(nodeList.join(""))
+            selects.splice(0, 1)
+            $('#room_add_roomType').html(selects.join(""))
+
+        })
+    }
+
+    function loadRooms() {
+        customAjax('/api/auth/ac_room/info', dataArray, function (rooms) {
+            var nodeList = []
+            for (var key in rooms) {
+                for (var index in rooms[key]) {
+                    var room = rooms[key][index]
+                    nodeList.push(
+                            actual_room_template.replace('$id$', room.roomNum)
+                                    .replace('$roomNum$', room.roomNum)
+                                    .replace('$roomType$', key)
+                                    .replace('$price$', room.price)
+                                    .replace('$state$', states[room.roomState])
+                    )
+                }
+            }
+
+            $('#rooms').html(nodeList.join(''))
+        })
+    }
+
+    function addRoomPlan() {
+        var data = $('#rp_add_form').serializeArray()
+        addToken(data)
+        customAjax('/api/auth/room_plan/add', data, function (content) {
+            showTips("添加成功")
+            setTimeout(function () {
+                loadRoomPlan()
+            }, 1500)
+        })
+    }
+
+    function deleteTips(id) {
+        rp_id = id;
+        $('#deleteTips').modal()
+    }
+
+    function deleteRpPlan() {
+        var data = getTokenArray()
+        addData(data, 'rpId', rp_id)
+        customAjax('/api/auth/room_pan/delete', data, function () {
+            showTips("删除成功")
+            loadRoomPlan()
+            loadRooms()
+        })
+    }
+
+    function addRoom() {
+        var index = $('#room_add_roomType').get(0).selectedIndex
+        var rpId = $('#room_add_roomType option').get(index).id
+        var dataArray = getTokenArray()
+        addData(dataArray, 'rpId', rpId)
+        addData(dataArray, 'roomNum', $('#room_add_num').val())
+        customAjax('/api/auth/ac_room/add', dataArray, function () {
+            showTips("添加成功")
+            loadRooms()
+        })
+    }
+</script>
+</html>

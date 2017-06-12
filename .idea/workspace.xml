@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4b4f9f90-e572-449d-bc4c-1fe0ef6189fb" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.classpath" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.idea/artifacts/MISHostelWorld.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.idea/dataSources.local.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.idea/dataSources.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.idea/dataSources/177b742e-2f35-4732-98a3-b6bd1f86b872.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.idea/junitgenerator-prj-settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.project" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.settings/.jsdtscope" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.settings/org.eclipse.core.resources.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.settings/org.eclipse.jdt.core.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.settings/org.eclipse.wst.common.component" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.settings/org.eclipse.wst.common.project.facet.core.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.settings/org.eclipse.wst.jsdt.ui.superType.container" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.settings/org.eclipse.wst.jsdt.ui.superType.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.settings/org.jboss.ide.eclipse.as.core.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/.tern-project" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/HostelWorld.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/META-INF/context.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/WEB-INF/lib/mysql-connector-java-5.1.40-bin.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/admin/login.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/admin/manager.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/WdatePicker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/calendar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/lang/en.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/lang/zh-cn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/lang/zh-tw.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/skin/WdatePicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/skin/datePicker.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/skin/default/datepicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/skin/default/img.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/skin/twoer/Thumbs.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/skin/twoer/datepicker-dev.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/skin/twoer/datepicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/skin/twoer/img.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/skin/twoer/img.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/skin/whyGreen/bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/skin/whyGreen/datepicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/skin/whyGreen/img.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/开发包/lang/en.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/开发包/lang/zh-cn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/开发包/lang/zh-tw.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/开发包/readme.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/开发包/skin/WdatePicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/开发包/skin/datePicker.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/开发包/skin/default/datepicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/开发包/skin/default/img.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/开发包/skin/whyGreen/bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/开发包/skin/whyGreen/datepicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/My97DatePicker/开发包/skin/whyGreen/img.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/area.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/button.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/font.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/hotelinfo.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/input.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/signup.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/slide.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/css/table.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/hotel/hotelinfo.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/hotel/login.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/hotel/roomPlan.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/hotel/signup.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/hotel/statistics.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/111.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/222.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/333.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/444.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/555.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/666.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/777.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/888.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/999.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/right_nr_bt1Bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/roomThree_min.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/roomTwo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/roomTwo_min.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/images/search_bg3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/classie.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/echarts.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/hotelInfo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/hotelSignup.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/hotelchoose.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/html5shiv.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/manager.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/onlinehotel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/roomPlan.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/statistic.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/js/userinfo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/user/hotelchoose.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/user/index.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/user/login.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/user/onlinehotel.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/user/signup.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/WebContent/user/userinfo.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/action/ChargeListBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/action/HotelAccommocdatedStatisticBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/action/HotelListBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/action/MemberOrderListBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/action/PoinListBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/action/PointListBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/action/RoomListBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/action/RoomOrderListBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/action/SaleStatisticBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/ChargeDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/DaoHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/HotelBalanceDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/HotelDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/PointDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/RecordDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/RoomDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/RoomPlanDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/RoomSaleDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/SaleDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/UserDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/impl/ChargeDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/impl/DaoHelperImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/impl/HotelDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/impl/PointDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/impl/RecordDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/impl/RoomDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/impl/RoomPlanDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/impl/RoomSaleDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/dao/impl/UserDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/factory/DaoFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/logic/HotelManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/logic/RecordManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/logic/RoomManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/logic/RoomPlanManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/logic/RoomSaleManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/logic/UserManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/logic/impl/HotelManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/logic/impl/RecordManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/logic/impl/RoomManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/logic/impl/RoomPlanManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/logic/impl/RoomSaleManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/logic/impl/UserManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/Charge.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/Hotel$HotelState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/Hotel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/HotelAccommocdatedStatistic.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/PlanRoom$RoomState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/PlanRoom.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/Point.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/Record.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/Room$RoomType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/Room.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/RoomCart.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/RoomOrder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/RoomPlan.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/RoomSaleState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/User$UserState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/model/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/CheckServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/HotelLoginServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/HotelLogoutServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/HotelRegisterServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/LoginServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/ManagerCalculateSerclet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/ManagerLogoutServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/ManagerServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/RegisterServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/RoomOrderServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/RoomPlanServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/RoomServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/build/classes/hostelworld/servlets/UserServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/dessert.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/lib/javax.annotation.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/lib/javax.ejb.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/lib/javax.jms.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/lib/javax.persistence.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/lib/javax.resource.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/lib/javax.servlet.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/lib/javax.servlet.jsp.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/lib/javax.servlet.jsp.jstl.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/lib/javax.transaction.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/action/ChargeListBean.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/action/HotelAccommocdatedStatisticBean.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/action/HotelListBean.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/action/MemberOrderListBean.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/action/PoinListBean.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/action/PointListBean.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/action/RoomListBean.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/action/RoomOrderListBean.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/action/SaleStatisticBean.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/ChargeDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/DaoHelper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/HotelBalanceDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/HotelDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/PointDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/RecordDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/RoomDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/RoomPlanDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/RoomSaleDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/SaleDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/UserDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/impl/ChargeDaoImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/impl/DaoHelperImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/impl/HotelDaoImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/impl/PointDaoImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/impl/RecordDaoImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/impl/RoomDaoImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/impl/RoomPlanDaoImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/impl/RoomSaleDaoImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/dao/impl/UserDaoImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/factory/DaoFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/logic/HotelManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/logic/RecordManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/logic/RoomManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/logic/RoomPlanManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/logic/RoomSaleManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/logic/UserManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/logic/impl/HotelManagerImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/logic/impl/RecordManagerImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/logic/impl/RoomManagerImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/logic/impl/RoomPlanManagerImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/logic/impl/RoomSaleManagerImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/logic/impl/UserManagerImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/model/Charge.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/model/Hotel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/model/HotelAccommocdatedStatistic.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/model/PlanRoom.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/model/Point.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/model/Record.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/model/Room.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/model/RoomCart.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/model/RoomOrder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/model/RoomPlan.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/model/RoomSaleState.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/model/User.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/CheckServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/HotelLoginServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/HotelLogoutServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/HotelRegisterServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/LoginServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/ManagerCalculateSerclet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/ManagerLogoutServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/ManagerServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/RegisterServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/RoomOrderServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/RoomPlanServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/RoomServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HostelWorld/src/hostelworld/servlets/UserServlet.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HostelWorld/.idea/misc.xml" afterPath="$PROJECT_DIR$/HostelWorld/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HostelWorld/.idea/workspace.xml" afterPath="$PROJECT_DIR$/HostelWorld/.idea/workspace.xml" />
+    </list>
+    <ignored path="MIS.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="MIS" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
+    <option name="y" value="23" />
+    <option name="width" value="1436" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HostelWorld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HostelWorld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HostelWorld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HostelWorld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="top" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yyf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4b4f9f90-e572-449d-bc4c-1fe0ef6189fb" name="Default" comment="" />
+      <created>1497276985299</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1497276985299</updated>
+      <workItem from="1497276986561" duration="27000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="27000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="4" y="23" width="1436" height="877" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964131" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+</project>

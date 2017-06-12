@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HotelWorld</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="dist/css/bootstrap.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="dist/css/bootstrap-theme.css">
+
+    <link rel="stylesheet" href="dist/css/custom.css">
+
+    <link rel="stylesheet" href="dist/css/font-awesome-4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="dist/css/ionicons-2.0.1/css/ionicons.css">
+
+    <link rel="stylesheet" href="dist/css/bootstrap-datetimepicker.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">HotelWorld</a>
+        </div>
+        <ul class="nav navbar-left navbar-nav">
+        </ul>
+        <ul class="nav navbar-nav navbar-right" style="padding-right: 20px">
+            <li><a href="manager_benchmark.html">主页</a></li>
+            <li><a href="manager_pass.html">审批</a></li>
+            <li><a href="#">结算</a></li>
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                   aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="manager_benchmark.html">
+                            <i class="fa fa-address-card nav-icon" aria-hidden="true"></i>
+                            营业信息
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html" onclick="setToken('')"><i class="fa fa-reply nav-icon"
+                                                                       aria-hidden="true"></i>
+                            登出
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+
+    <!--酒店信息-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">历史信息</h3>
+        </div>
+        <div class="panel-body hotel-home-panel">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <td style="width:25%;">酒店号</td>
+                    <td style="width:25%;">酒店名</td>
+                    <td style="width:25%;">待结算金额</td>
+                    <td style="width:15%;"></td>
+                </tr>
+                </thead>
+                <tbody id="hotel_payout">
+                <tr>
+                    <td>h00001</td>
+                    <td>dwadaw</td>
+                    <td>12563.2</td>
+                    <td>
+                        <button class="btn btn-success">结算</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+<textarea id="his_info_template" style="display: none">
+   <tr>
+       <td>$hotelId$</td>
+       <td>$hotelName$</td>
+       <td>$totalMoney$</td>
+       <td>
+           <button class="btn btn-success" id="$id$" onclick="payout(this.id)">结算</button>
+       </td>
+   </tr>
+</textarea>
+
+
+<!--提示框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="tips">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Tips</h4>
+            </div>
+            <div class="modal-body">
+                <p id="tips-content">One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+</body>
+<script src="dist/js/jquery-3.1.1.js"></script>
+<script src="dist/js/jquery.form.js"></script>
+<script src="dist/js/jquery.cookie.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="dist/js/bootstrap.js"></script>
+
+<script src="dist/js/bootstrap-datetimepicker.js"></script>
+<script src="dist/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="dist/js/custom.js"></script>
+<script>
+    var tokenArray = getTokenArray()
+    var his_info_template = $('#his_info_template').val();
+
+    $(document).ready(function () {
+        loadUnpaiedInfo()
+    })
+    function loadUnpaiedInfo() {
+        customAjax('/api/auth/manager/unpaiedInfo', tokenArray, function (infos) {
+            var nodeList = []
+            infos.forEach(function (e) {
+                nodeList.push(
+                        his_info_template.replace('$hotelId$', e.hotelId)
+                                .replace('$hotelName$', e.hotelName)
+                                .replace('$totalMoney$', e.totalPrice)
+                                .replace('$id$', e.hotelId)
+                )
+            })
+            $('#hotel_payout').html(nodeList.join(""))
+        })
+    }
+
+    function payout(id) {
+        var data = getTokenArray()
+        addData(data, 'hotelId', id);
+        customAjax('/api/auth/manager/pay', data, function () {
+            showTips("结算成功")
+            loadUnpaiedInfo()
+        })
+    }
+</script>
+</html>

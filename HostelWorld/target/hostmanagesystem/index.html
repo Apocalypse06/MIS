@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HotelWorld</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="dist/css/bootstrap.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="dist/css/bootstrap-theme.css">
+
+    <link rel="stylesheet" href="dist/css/custom.css">
+</head>
+<body style="height: 100vh;">
+<!--<div class="back-img"></div>-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">HotelWorld</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+        </ul>
+    </div>
+</nav>
+<div class=" container-fluid">
+    <div class="row">
+        <div class="panel panel-default col-lg-6 col-lg-offset-4  index-sign">
+            <ul class="nav nav-tabs">
+                <li role="presentation"
+                    class="active"><a href="#signIn" data-toggle="tab">登录</a></li>
+                <li role="presentation"><a href="#user_sign" data-toggle="tab">用户注册</a></li>
+                <li role="presentation"><a href="#hotel_sign" data-toggle="tab">
+                    酒店注册</a></li>
+            </ul>
+            <div class="tab-content">
+                <!--登录-->
+                <div class="tab-pane fade in active" id="signIn">
+                    <h3>登录</h3>
+                    <div class="panel-body">
+                        <form role="form" method="post" id="userLoginIn">
+                            <div class="form-group">
+                                <label for="loginId">邮箱/酒店号</label>
+                                <input type="text" class="form-control" id="loginId"
+                                       placeholder="用户名/酒店号"
+                                       name="id">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">密码</label>
+                                <input type="password" class="form-control" id="loginPassword"
+                                       placeholder="密码" name="password"
+                                       onfocus=""
+                                       value="">
+                            </div>
+                            <label class="radio-inline">
+                                <input type="radio" checked="checked" name="inlineRadioOptions"
+                                       id="inlineRadio1"
+                                       value="normal">普通用户
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                       value="hotel">酒店
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                       value="manager">经理
+                            </label>
+                        </form>
+                        <button class="btn btn-success pull-right"
+                                style="display: block;margin-top: 15px" onclick="userLoginIn()">
+                            登录
+                        </button>
+                    </div>
+                </div>
+
+                <!--用户注册-->
+                <div class="tab-pane" id="user_sign">
+                    <h3>用户注册</h3>
+                    <div class="panel-body">
+                        <form role="form" method="post" id="userRegister"
+                              action="/api//user/register">
+                            <div class="form-group">
+                                <label for="userRegisterUsername">用户名</label>
+                                <input type="text" class="form-control" id="userRegisterUsername"
+                                       placeholder="用户名"
+                                       name="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="userEmail">邮箱</label>
+                                <input type="email" class="form-control" id="userEmail"
+                                       placeholder="邮箱" name="email"
+                                       onfocus=""
+                                       value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="userRegisterPassword">密码</label>
+                                <input type="password" class="form-control"
+                                       id="userRegisterPassword"
+                                       placeholder="密码" name="password"
+                                       onfocus=""
+                                       value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="userConfirmPassword">确认密码</label>
+                                <input type="password" class="form-control" id="userConfirmPassword"
+                                       placeholder="确认密码" name="confirmPass"
+                                       onfocus=""
+                                       value="">
+                            </div>
+                            <div>
+                            </div>
+                        </form>
+                        <button class="btn btn-success pull-right"
+                                onclick="userRegister()">注册
+                        </button>
+                    </div>
+                </div>
+
+                <!--酒店注册-->
+                <div class="tab-pane" id="hotel_sign">
+                    <h3>酒店注册</h3>
+                    <div class="panel-body">
+                        <form role="form" method="post" id="hotel_register">
+                            <div class="form-group">
+                                <label for="hotelName">酒店名</label>
+                                <input type="text" class="form-control" id="hotelName"
+                                       placeholder="酒店名"
+                                       name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">酒店地址</label>
+                                <input type="text" class="form-control" id="address"
+                                       placeholder="地址"
+                                       name="address">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hotelResisterPassword">密码</label>
+                                <input type="password" class="form-control"
+                                       id="hotelResisterPassword"
+                                       placeholder="密码" name="password"
+                                       onfocus=""
+                                       value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="hotelConfirmPassword">确认密码</label>
+                                <input type="password" class="form-control"
+                                       id="hotelConfirmPassword"
+                                       placeholder="确认密码" name="confirmPass"
+                                       onfocus=""
+                                       value="">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hotelDescription">酒店描述</label>
+                                <textarea class="form-control"
+                                          id="hotelDescription"
+                                          placeholder="描述" name="description"
+                                          onfocus=""></textarea>
+                            </div>
+                            <div>
+                            </div>
+                        </form>
+                        <button type="submit" class="btn btn-success pull-right"
+                                onclick="hotelRegister()">注册
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--提示框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="tips">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Tips</h4>
+            </div>
+            <div class="modal-body">
+                <p id="tips-content">One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button id="tips_close_button" type="button" class="btn btn-primary"
+                        data-dismiss="modal">Close
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</body>
+<script src="dist/js/jquery-3.1.1.js"></script>
+<script src="dist/js/jquery.form.js"></script>
+<script src="dist/js/jquery.cookie.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="dist/js/bootstrap.js"></script>
+
+<script src="dist/js/custom.js"></script>
+
+<script>
+    function userRegister() {
+        var pass = $('#userRegisterPassword').val();
+        var confirmPass = $('#userConfirmPassword').val();
+        if (pass != confirmPass) {
+            showTips("请确认两次输入的密码相同");
+        } else {
+            var data = $('#userRegister').serializeArray()
+            $.ajax({
+                url: '/api/user/register',
+                dataType: 'json',
+                type: 'POST',
+                data: data,
+                success: function (res) {
+                    console.log(res.retCode)
+                    console.log(res.retCode != successCode)
+                    if (res.retCode != successCode) {
+                        showTips("failed!:" + res.retMess)
+                    } else {
+                        showTips("注册成功！！")
+                        setToken(res.retContent)
+                        setTimeout(function () {
+                            window.location.href = "/normal_user_benchmark.html"
+                        }, 1500)
+                    }
+                },
+                error: function (res) {
+                    showTips("error!!")
+                }
+            })
+        }
+
+        $('#userRegisterPassword').val("")
+        $('#userConfirmPassword').val("");
+    }
+
+    function userLoginIn() {
+        var username = $('#loginId').val();
+        var password = $('#loginPassword').val();
+        var type = $('#userLoginIn input[type=radio]:checked').val();
+        var dataArray = new Array();
+        addData(dataArray, 'username', username)
+        addData(dataArray, 'password', password)
+        switch (type) {
+            case 'normal':
+                $.ajax({
+                    url: '/api/user/login',
+                    dataType: 'json',
+                    data: dataArray,
+                    success: function (res) {
+                        if (res.retCode != successCode) {
+                            showTips("账号或密码错误")
+                        } else {
+                            setToken(res.retContent)
+                            window.location.href = "/normal_user_benchmark.html"
+                        }
+                    },
+                    error: function (res) {
+
+                    }
+                })
+                break;
+            case 'hotel':
+                $.ajax({
+                    url: '/api/hotel/login',
+                    dataType: 'json',
+                    data: dataArray,
+                    success: function (res) {
+                        if (res.retCode != successCode) {
+                            showTips("账号或密码错误或酒店未注册")
+                        } else {
+                            setToken(res.retContent)
+                            window.location.href = "/hotel_benchmark.html"
+                        }
+                    },
+                    error: function (res) {
+
+                    }
+                })
+                break
+            case 'manager':
+                customAjax('/api/manager/login', dataArray, function (res) {
+                    setToken(res)
+                    window.location.href = "/manager_benchmark.html"
+                })
+        }
+    }
+
+    function hotelRegister() {
+        var pass = $('#hotelResisterPassword').val();
+        var confirmPass = $('#hotelConfirmPassword').val();
+        if (pass != confirmPass) {
+            showTips("请确认两次密码相同")
+        } else {
+            var dataArray = $('#hotel_register').serializeArray();
+            $.ajax({
+                url: '/api/hotel/hotelRegister',
+                dataType: 'json',
+                type: 'POST',
+                data: dataArray,
+                success: function (res) {
+                    if (res.retCode != successCode) {
+                        showTips("failed!<br/>" + res.retMess)
+                    } else {
+                        showTips("提交成功，等待经历审核!<br/>" + "您的酒店号:" + res.retContent)
+                        $('#tips_close_button').click(function () {
+                            window.location.href = "/index.html"
+                            $('#tips_close_button').unbind('click')
+                        })
+                    }
+                },
+                error: function (res) {
+                    showTips("error")
+                }
+            })
+        }
+
+
+    }
+</script>
+
+</html>

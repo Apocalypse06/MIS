@@ -82,11 +82,11 @@
 
             </props>
         </property>
-        <property name="annotatedClasses">
-            <list>
-                <value>top.yyf.entity.HotelInfoChangeEntity</value>
-            </list>
-        </property>
+        <!--<property name="annotatedClasses">-->
+            <!--<list>-->
+                <!--<value>top.yyf.entity.HotelInfoChangeEntity</value>-->
+            <!--</list>-->
+        <!--</property>-->
 
     </bean>
 

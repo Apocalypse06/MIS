@@ -113,10 +113,15 @@ public class CheckInOutServiceImpl implements CheckInOutService {
 
         ManagerPayOutEntity managerPayOutEntity = null;
         MembershipEntity membershipEntity = null;
+
+
+
         //会员支付时创建代付订单和增加会员积分
         if (checkInEntity.getPayType().equals(PayType.MEMBERCARD)) {
 
             membershipEntity = checkInEntity.getMembership();
+            System.out.println(checkInEntity.getCheckinId());
+
             if (scorePay) {
                 int score = membershipEntity.getAvailablescore();
                 double discount = (double) score / 1000;

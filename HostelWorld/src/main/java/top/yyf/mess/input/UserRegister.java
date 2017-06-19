@@ -13,6 +13,12 @@ public class UserRegister {
      * 密码
      */
     private String password;
+
+    /*新指标*/
+    private String age;
+
+    private String city;
+
     /**
      * 确认密码
      */
@@ -52,5 +58,21 @@ public class UserRegister {
 
     public void setConfirmPass(String confirmPass) {
         this.confirmPass = confirmPass;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

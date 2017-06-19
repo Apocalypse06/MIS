@@ -79,6 +79,9 @@ public class CheckInOutServiceImpl implements CheckInOutService {
                     checkinListEntity.setName(e.getName());
                     checkInEntity.getCheckInLists().add(checkinListEntity);
                 });
+        /*新增属性*/
+        actualRoomEntity.setIsOnceUsed((byte) 1);
+
         checkInDao.saveOrUpdate(checkInEntity);
         actualRoomDao.saveOrUpdate(actualRoomEntity);
         if (reservationEntity != null)
@@ -130,6 +133,9 @@ public class CheckInOutServiceImpl implements CheckInOutService {
             }
             membershipEntity.setTotalscore(membershipEntity.getTotalscore() + (int) price);
             membershipEntity.setAvailablescore((membershipEntity.getAvailablescore() + (int) price));
+
+            membershipEntity.setLastPayTime(LocalDate.now().toString());
+
             memberShipDao.saveOrUpdate(membershipEntity);
 
             managerPayOutEntity = new ManagerPayOutEntity();

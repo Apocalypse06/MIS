@@ -44,6 +44,8 @@ public class HotelServiceImpl implements HotelService {
         hotelEntity.setIsPassed((byte) 0);
         hotelEntity.setName(hotelRegister.getName());
         hotelEntity.setPassword(hotelRegister.getPassword());
+        hotelEntity.setAddress_city(hotelRegister.getAddress_city());
+
         hotelEntity.setHotelId(idGenerator.generateNextHotelId());
         try {
             hotelDao.saveOrUpdate(hotelEntity);

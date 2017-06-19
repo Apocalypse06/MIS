@@ -34,486 +34,523 @@
     <table id="29" parent="1" name="reservation"/>
     <table id="30" parent="1" name="room_plan"/>
     <table id="31" parent="1" name="user"/>
-    <column id="32" parent="18" name="room_id">
+    <table id="32" parent="1" name="user_monthly_cost"/>
+    <column id="33" parent="18" name="room_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="33" parent="18" name="room_num">
+    <column id="34" parent="18" name="room_num">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="34" parent="18" name="rp_id">
+    <column id="35" parent="18" name="rp_id">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="35" parent="18" name="hotel_id">
+    <column id="36" parent="18" name="hotel_id">
       <data-type>varchar(7)|0</data-type>
     </column>
-    <column id="36" parent="18" name="price">
+    <column id="37" parent="18" name="price">
       <data-type>double(10,2)|0</data-type>
     </column>
-    <column id="37" parent="18" name="isempty">
+    <column id="38" parent="18" name="isempty">
       <data-type>tinyint(1)|0</data-type>
     </column>
-    <index id="38" parent="18" name="fk_actual_room_actual_room_1">
+    <column id="39" parent="18" name="isonceused">
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="40" parent="18" name="fk_actual_room_actual_room_1">
       <columns>rp_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="39" parent="18" name="fk_actual_room_actual_room_2">
+    <index id="41" parent="18" name="fk_actual_room_actual_room_2">
       <columns>hotel_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="40" parent="18" name="PRIMARY">
+    <key id="42" parent="18" name="PRIMARY">
       <columns>room_id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="41" parent="18" name="fk_actual_room_actual_room_1">
+    <foreign-key id="43" parent="18" name="fk_actual_room_actual_room_1">
       <columns>rp_id</columns>
       <ref-key>~.room_plan.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="42" parent="18" name="fk_actual_room_actual_room_2">
+    <foreign-key id="44" parent="18" name="fk_actual_room_actual_room_2">
       <columns>hotel_id</columns>
       <ref-key>~.hotel.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <column id="43" parent="19" name="checkin_id">
+    <column id="45" parent="19" name="checkin_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="44" parent="19" name="time">
+    <column id="46" parent="19" name="time">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="45" parent="19" name="pay_type">
+    <column id="47" parent="19" name="pay_type">
       <data-type>enum(&apos;CASH&apos;, &apos;MEMBERCARD&apos;)|0</data-type>
     </column>
-    <column id="46" parent="19" name="checkin_num">
+    <column id="48" parent="19" name="checkin_num">
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <column id="47" parent="19" name="room_id">
+    <column id="49" parent="19" name="room_id">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="48" parent="19" name="is_checked_out">
+    <column id="50" parent="19" name="is_checked_out">
       <data-type>tinyint(1)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <column id="49" parent="19" name="membership_id">
+    <column id="51" parent="19" name="membership_id">
       <data-type>varchar(7)|0</data-type>
     </column>
-    <index id="50" parent="19" name="fk_checkin_actualroom">
+    <index id="52" parent="19" name="fk_checkin_actualroom">
       <columns>room_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="51" parent="19" name="PRIMARY">
+    <key id="53" parent="19" name="PRIMARY">
       <columns>checkin_id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="52" parent="19" name="fk_checkin_actualroom">
+    <foreign-key id="54" parent="19" name="fk_checkin_actualroom">
       <columns>room_id</columns>
       <ref-key>~.actual_room.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <column id="53" parent="20" name="checkout_id">
+    <column id="55" parent="20" name="checkout_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="54" parent="20" name="time">
+    <column id="56" parent="20" name="time">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="55" parent="20" name="real_consume">
+    <column id="57" parent="20" name="real_consume">
       <data-type>double(10,2)|0</data-type>
     </column>
-    <column id="56" parent="20" name="checkin_id">
+    <column id="58" parent="20" name="checkin_id">
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="57" parent="20" name="fk_check_out_check_out_1">
+    <index id="59" parent="20" name="fk_check_out_check_out_1">
       <columns>checkin_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="58" parent="20" name="PRIMARY">
+    <key id="60" parent="20" name="PRIMARY">
       <columns>checkout_id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="59" parent="20" name="fk_check_out_check_out_1">
+    <foreign-key id="61" parent="20" name="fk_check_out_check_out_1">
       <columns>checkin_id</columns>
       <ref-key>~.check_in.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <column id="60" parent="21" name="checkin_list_id">
+    <column id="62" parent="21" name="checkin_list_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="61" parent="21" name="checkin_id">
+    <column id="63" parent="21" name="checkin_id">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="62" parent="21" name="custom_id">
+    <column id="64" parent="21" name="custom_id">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="63" parent="21" name="name">
+    <column id="65" parent="21" name="name">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <index id="64" parent="21" name="fk_checkin_list_checkin_list_1">
+    <index id="66" parent="21" name="fk_checkin_list_checkin_list_1">
       <columns>checkin_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="65" parent="21" name="PRIMARY">
+    <key id="67" parent="21" name="PRIMARY">
       <columns>checkin_list_id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="66" parent="21" name="fk_checkin_list_checkin_list_1">
+    <foreign-key id="68" parent="21" name="fk_checkin_list_checkin_list_1">
       <columns>checkin_id</columns>
       <ref-key>~.check_in.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <column id="67" parent="22" name="fid">
+    <column id="69" parent="22" name="fid">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="68" parent="22" name="time">
+    <column id="70" parent="22" name="time">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="69" parent="22" name="money">
+    <column id="71" parent="22" name="money">
       <data-type>double(10,2)|0</data-type>
     </column>
-    <column id="70" parent="22" name="checkout_id">
+    <column id="72" parent="22" name="checkout_id">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="71" parent="22" name="hotel_id">
+    <column id="73" parent="22" name="hotel_id">
       <data-type>varchar(7)|0</data-type>
     </column>
-    <column id="72" parent="22" name="pay_type">
+    <column id="74" parent="22" name="pay_type">
       <data-type>enum(&apos;CASH&apos;, &apos;MEMBERCARD&apos;)|0</data-type>
     </column>
-    <index id="73" parent="22" name="fk_financial_order_financial_order_1">
+    <index id="75" parent="22" name="fk_financial_order_financial_order_1">
       <columns>checkout_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="74" parent="22" name="fk_financial_order_financial_order_2">
+    <index id="76" parent="22" name="fk_financial_order_financial_order_2">
       <columns>hotel_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="75" parent="22" name="PRIMARY">
+    <key id="77" parent="22" name="PRIMARY">
       <columns>fid</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="76" parent="22" name="fk_financial_order_financial_order_1">
+    <foreign-key id="78" parent="22" name="fk_financial_order_financial_order_1">
       <columns>checkout_id</columns>
       <ref-key>~.check_out.PRIMARY</ref-key>
       <cascade-update-rule>set_null</cascade-update-rule>
       <cascade-delete-rule>set_null</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="77" parent="22" name="fk_financial_order_financial_order_2">
+    <foreign-key id="79" parent="22" name="fk_financial_order_financial_order_2">
       <columns>hotel_id</columns>
       <ref-key>~.hotel.PRIMARY</ref-key>
       <cascade-update-rule>set_null</cascade-update-rule>
       <cascade-delete-rule>set_null</cascade-delete-rule>
     </foreign-key>
-    <column id="78" parent="23" name="frfid">
+    <column id="80" parent="23" name="frfid">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="79" parent="23" name="time">
+    <column id="81" parent="23" name="time">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="80" parent="23" name="type">
+    <column id="82" parent="23" name="type">
       <data-type>enum(&apos;DAY&apos;, &apos;MONTH&apos;, &apos;QUARTER&apos;, &apos;YEAR&apos;)|0</data-type>
     </column>
-    <column id="81" parent="23" name="checkins">
+    <column id="83" parent="23" name="checkins">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="82" parent="23" name="checkouts">
+    <column id="84" parent="23" name="checkouts">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="83" parent="23" name="total_income">
+    <column id="85" parent="23" name="total_income">
       <data-type>double(10,2)|0</data-type>
     </column>
-    <key id="84" parent="23" name="PRIMARY">
+    <key id="86" parent="23" name="PRIMARY">
       <columns>frfid</columns>
       <primary>1</primary>
     </key>
-    <column id="85" parent="24" name="hotel_id">
+    <column id="87" parent="24" name="hotel_id">
       <mandatory>1</mandatory>
       <data-type>varchar(7)|0</data-type>
     </column>
-    <column id="86" parent="24" name="password">
+    <column id="88" parent="24" name="password">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="87" parent="24" name="name">
+    <column id="89" parent="24" name="name">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="88" parent="24" name="address">
+    <column id="90" parent="24" name="address">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="89" parent="24" name="description">
+    <column id="91" parent="24" name="description">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="90" parent="24" name="is_passed">
+    <column id="92" parent="24" name="is_passed">
       <data-type>tinyint(1)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <key id="91" parent="24" name="PRIMARY">
+    <column id="93" parent="24" name="address_city">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="94" parent="24" name="PRIMARY">
       <columns>hotel_id</columns>
       <primary>1</primary>
     </key>
-    <column id="92" parent="25" name="level">
+    <column id="95" parent="25" name="level">
       <mandatory>1</mandatory>
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <column id="93" parent="25" name="demand_score">
+    <column id="96" parent="25" name="demand_score">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="94" parent="25" name="discount">
+    <column id="97" parent="25" name="discount">
       <data-type>double(10,2)|0</data-type>
     </column>
-    <key id="95" parent="25" name="PRIMARY">
+    <key id="98" parent="25" name="PRIMARY">
       <columns>level</columns>
       <primary>1</primary>
     </key>
-    <column id="96" parent="26" name="username">
+    <column id="99" parent="26" name="username">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="97" parent="26" name="password">
+    <column id="100" parent="26" name="password">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <key id="98" parent="26" name="PRIMARY">
+    <key id="101" parent="26" name="PRIMARY">
       <columns>username</columns>
       <primary>1</primary>
     </key>
-    <column id="99" parent="27" name="mpo_id">
+    <column id="102" parent="27" name="mpo_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="100" parent="27" name="fid">
+    <column id="103" parent="27" name="fid">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="101" parent="27" name="money">
+    <column id="104" parent="27" name="money">
       <data-type>double(10,2)|0</data-type>
     </column>
-    <column id="102" parent="27" name="is_paid">
+    <column id="105" parent="27" name="is_paid">
       <data-type>tinyint(1)|0</data-type>
     </column>
-    <index id="103" parent="27" name="fk_manager_pay_out_manager_pay_out_1">
+    <index id="106" parent="27" name="fk_manager_pay_out_manager_pay_out_1">
       <columns>fid</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="104" parent="27" name="PRIMARY">
+    <key id="107" parent="27" name="PRIMARY">
       <columns>mpo_id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="105" parent="27" name="fk_manager_pay_out_manager_pay_out_1">
+    <foreign-key id="108" parent="27" name="fk_manager_pay_out_manager_pay_out_1">
       <columns>fid</columns>
       <ref-key>~.financial_order.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <column id="106" parent="28" name="merbership_id">
+    <column id="109" parent="28" name="merbership_id">
       <mandatory>1</mandatory>
       <data-type>varchar(7)|0</data-type>
     </column>
-    <column id="107" parent="28" name="state">
+    <column id="110" parent="28" name="state">
       <data-type>enum(&apos;NORMAL&apos;, &apos;PAUSE&apos;, &apos;STOP&apos;)|0</data-type>
       <default-expression>&apos;NORMAL&apos;</default-expression>
     </column>
-    <column id="108" parent="28" name="totalscore">
+    <column id="111" parent="28" name="totalscore">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="109" parent="28" name="availablescore">
+    <column id="112" parent="28" name="availablescore">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="110" parent="28" name="level">
+    <column id="113" parent="28" name="level">
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <column id="111" parent="28" name="last_pay_time">
+    <column id="114" parent="28" name="last_pay_time">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="112" parent="28" name="createTime">
+    <column id="115" parent="28" name="createTime">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="113" parent="28" name="balance">
+    <column id="116" parent="28" name="balance">
       <data-type>double|0</data-type>
     </column>
-    <index id="114" parent="28" name="fk_membership_membership_1">
+    <index id="117" parent="28" name="fk_membership_membership_1">
       <columns>level</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="115" parent="28" name="PRIMARY">
+    <key id="118" parent="28" name="PRIMARY">
       <columns>merbership_id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="116" parent="28" name="fk_membership_membership_1">
+    <foreign-key id="119" parent="28" name="fk_membership_membership_1">
       <columns>level</columns>
       <ref-key>~.level_info.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <column id="117" parent="29" name="resId">
+    <column id="120" parent="29" name="resId">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="118" parent="29" name="user_email">
+    <column id="121" parent="29" name="user_email">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="119" parent="29" name="hotel_id">
+    <column id="122" parent="29" name="hotel_id">
       <data-type>varchar(7)|0</data-type>
     </column>
-    <column id="120" parent="29" name="fromdate">
+    <column id="123" parent="29" name="fromdate">
       <data-type>date|0</data-type>
     </column>
-    <column id="121" parent="29" name="todate">
+    <column id="124" parent="29" name="todate">
       <data-type>date|0</data-type>
     </column>
-    <column id="122" parent="29" name="rp_id">
+    <column id="125" parent="29" name="rp_id">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="123" parent="29" name="is_delete">
+    <column id="126" parent="29" name="is_delete">
       <data-type>tinyint(1)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <column id="124" parent="29" name="revervation_time">
+    <column id="127" parent="29" name="revervation_time">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="125" parent="29" name="state">
+    <column id="128" parent="29" name="state">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="126" parent="29" name="name">
+    <column id="129" parent="29" name="name">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="127" parent="29" name="phone_num">
+    <column id="130" parent="29" name="phone_num">
       <data-type>varchar(11)|0</data-type>
     </column>
-    <column id="128" parent="29" name="room_id">
+    <column id="131" parent="29" name="room_id">
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="129" parent="29" name="fk_reservation_actual_room">
+    <index id="132" parent="29" name="fk_reservation_actual_room">
       <columns>room_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="130" parent="29" name="fk_reservation_reservation_1">
+    <index id="133" parent="29" name="fk_reservation_reservation_1">
       <columns>hotel_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="131" parent="29" name="fk_reservation_reservation_2">
+    <index id="134" parent="29" name="fk_reservation_reservation_2">
       <columns>rp_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="132" parent="29" name="fk_reservation_user">
+    <index id="135" parent="29" name="fk_reservation_user">
       <columns>user_email</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="133" parent="29" name="PRIMARY">
+    <key id="136" parent="29" name="PRIMARY">
       <columns>resId</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="134" parent="29" name="fk_reservation_user">
+    <foreign-key id="137" parent="29" name="fk_reservation_user">
       <columns>user_email</columns>
       <ref-key>~.user.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="135" parent="29" name="fk_reservation_reservation_1">
+    <foreign-key id="138" parent="29" name="fk_reservation_reservation_1">
       <columns>hotel_id</columns>
       <ref-key>~.hotel.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="136" parent="29" name="fk_reservation_reservation_2">
+    <foreign-key id="139" parent="29" name="fk_reservation_reservation_2">
       <columns>rp_id</columns>
       <ref-key>~.room_plan.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="137" parent="29" name="fk_reservation_actual_room">
+    <foreign-key id="140" parent="29" name="fk_reservation_actual_room">
       <columns>room_id</columns>
       <ref-key>~.actual_room.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <column id="138" parent="30" name="rp_id">
+    <column id="141" parent="30" name="rp_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="139" parent="30" name="room_type">
+    <column id="142" parent="30" name="room_type">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="140" parent="30" name="fromdate">
+    <column id="143" parent="30" name="fromdate">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="141" parent="30" name="todate">
+    <column id="144" parent="30" name="todate">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="142" parent="30" name="price">
+    <column id="145" parent="30" name="price">
       <data-type>double(10,2)|0</data-type>
     </column>
-    <column id="143" parent="30" name="hotel_id">
+    <column id="146" parent="30" name="hotel_id">
       <data-type>varchar(7)|0</data-type>
     </column>
-    <column id="144" parent="30" name="description">
+    <column id="147" parent="30" name="description">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="145" parent="30" name="accommodation">
+    <column id="148" parent="30" name="accommodation">
       <data-type>tinyint(5)|0</data-type>
     </column>
-    <index id="146" parent="30" name="fk_room_plan_room_plan_1">
+    <index id="149" parent="30" name="fk_room_plan_room_plan_1">
       <columns>hotel_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="147" parent="30" name="PRIMARY">
+    <key id="150" parent="30" name="PRIMARY">
       <columns>rp_id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="148" parent="30" name="fk_room_plan_room_plan_1">
+    <foreign-key id="151" parent="30" name="fk_room_plan_room_plan_1">
       <columns>hotel_id</columns>
       <ref-key>~.hotel.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <column id="149" parent="31" name="email">
+    <column id="152" parent="31" name="email">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="150" parent="31" name="password">
+    <column id="153" parent="31" name="password">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="151" parent="31" name="userType">
+    <column id="154" parent="31" name="userType">
       <data-type>enum(&apos;NORMAL&apos;, &apos;MEMBER&apos;)|0</data-type>
       <default-expression>&apos;NORMAL&apos;</default-expression>
     </column>
-    <column id="152" parent="31" name="bankNum">
+    <column id="155" parent="31" name="bankNum">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="153" parent="31" name="merbership_id">
+    <column id="156" parent="31" name="merbership_id">
       <data-type>varchar(7)|0</data-type>
     </column>
-    <column id="154" parent="31" name="name">
+    <column id="157" parent="31" name="name">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <index id="155" parent="31" name="fk_user_user_1">
+    <column id="158" parent="31" name="age">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="159" parent="31" name="city">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="160" parent="31" name="fk_user_user_1">
       <columns>merbership_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="156" parent="31" name="PRIMARY">
+    <key id="161" parent="31" name="PRIMARY">
       <columns>email</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="157" parent="31" name="fk_user_user_1">
+    <foreign-key id="162" parent="31" name="fk_user_user_1">
       <columns>merbership_id</columns>
       <ref-key>~.membership.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
+    <column id="163" parent="32" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="164" parent="32" name="cost">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="165" parent="32" name="date">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="166" parent="32" name="user_monthly_cost_user_id_uindex">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="167" parent="32" name="PRIMARY">
+      <columns>user_id</columns>
+      <primary>1</primary>
+    </key>
+    <key id="168" parent="32" name="user_monthly_cost_user_id_uindex">
+      <columns>user_id</columns>
+      <underlying-index>user_monthly_cost_user_id_uindex</underlying-index>
+    </key>
   </database-model>
 </dataSource>

@@ -4,8 +4,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import top.yyf.dao.ActualRoomDao;
+import top.yyf.entity.ActualRoomEntity;
 import top.yyf.util.ApplicationContextHelper;
 import top.yyf.util.BeforeTest;
+
+import java.util.List;
 
 /**
  * ActualRoomDao Tester.
@@ -41,6 +44,14 @@ public class ActualRoomDaoTest {
      */
     @Test
     public void testGetEmptyRoom() throws Exception {
+    }
+
+    @Test
+    public void testGetLatestRooms() throws Exception {
+        List<ActualRoomEntity> actualRoomEntityList = actualRoomDao.getLatestRooms("h000001");
+        for(ActualRoomEntity actualRoomEntity:actualRoomEntityList){
+            System.out.println(actualRoomEntity.getRoomId());
+        }
     }
 
 

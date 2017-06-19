@@ -70,5 +70,41 @@ public class ActualRoomDao extends BaseDao<ActualRoomEntity, Integer> {
         return getListByHQL("from ActualRoomEntity  where hotelId.id=?", hotelId);
     }
 
+    public List<ActualRoomEntity> getLatestRooms(String hotel){
+        String hql = "from ActualRoomEntity where rpId.rpId in " +
+                "(SELECT DISTINCT rpId.rpId from RoomPlanEntity where hotel.id=? and fromdate LIKE '%-06-%' )";
+        return getListByHQL(hql, hotel);
+    }
+
+    /**
+     * 根据时间和酒店id获得当月使用过的房间
+     * @param hotel
+     * @param month
+     * @return
+     */
+    public List<ActualRoomEntity> getUsedRooms(String hotel, String month){
+
+        String sql = "SELECT * FROM actual_room WHERE room_id IN" +
+                "      (SELECT DISTINCT room_id FROM check_in WHERE checkin_id IN" +
+                "              (SELECT DISTINCT checkin_id FROM check_out WHERE checkout_id IN" +
+                "                      (SELECT DISTINCT checkout_id FROM financial_order as fo WHERE fo.hotel_id = ? and time LIKE ? )))";
+
+        return getSession().createSQLQuery(sql).setParameter(0, hotel).setParameter(1, "%-"+month+"-%").list();
+    }
+
+    /**
+     * 根据hotel和时间 获得当月所有房间信息
+     * @param hotel
+     * @param month
+     * @return
+     */
+    public List<ActualRoomEntity> getRoomNumByHotelAndDate(String hotel, String month){
+        String sql = "SELECT * FROM actual_room where rp_id IN " +
+                "      (SELECT DISTINCT room_plan.rp_id from room_plan where hotel_id =? and fromdate LIKE ? )";
+
+        return getSession().createSQLQuery(sql).setParameter(0, hotel).setParameter(1, "%-"+month+"-%").list();
+
+    }
+
 
 }

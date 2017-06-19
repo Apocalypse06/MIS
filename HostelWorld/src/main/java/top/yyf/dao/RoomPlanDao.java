@@ -12,11 +12,12 @@ import java.util.List;
 @Repository
 public class RoomPlanDao extends BaseDao<RoomPlanEntity, Integer> {
     public List<RoomPlanEntity> getRoomPlansByHotelId(String hotelId) {
-        return getListByHQL("from RoomPlanEntity where hotel.id=?", hotelId);
+        return getListByHQL("from RoomPlanEntity where hotel.id=? AND fromdate LIKE '%-06-%' ", hotelId);
     }
 
     public RoomPlanEntity getRoomPlanByName(String roomType, String hotelId) {
         return getByHQL("from RoomPlanEntity where hotel.id=? AND roomType=?", hotelId, roomType);
     }
+
 
 }

@@ -19,4 +19,8 @@ public class FinancialOrderDao extends BaseDao<FinancialOrderEntity, Integer> {
     public List<FinancialOrderEntity> getAllOrders() {
         return getListByHQL("from FinancialOrderEntity");
     }
+
+    public List<FinancialOrderEntity> getFinancialEntities(String hotel, String month_quanter) {
+        return getListByHQL("from FinancialOrderEntity where hotel.id=? and time like ?", hotel, "%-"+month_quanter+"-%");
+    }
 }

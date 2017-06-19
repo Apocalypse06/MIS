@@ -14,6 +14,9 @@ public class UserEntity {
     private String bankNum;
     private MembershipEntity merbership;
     private String name;
+    /*新指标*/
+    private String age;
+    private String city;
 
 
     @Id
@@ -93,6 +96,7 @@ public class UserEntity {
         result = 31 * result + (bankNum != null ? bankNum.hashCode() : 0);
         result = 31 * result + (merbership != null ? merbership.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
+
         return result;
     }
 
@@ -104,5 +108,25 @@ public class UserEntity {
 
     public void setMerbership(MembershipEntity merbership) {
         this.merbership = merbership;
+    }
+
+    @Basic
+    @Column(name = "age", nullable = false, length = 255)
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    @Basic
+    @Column(name = "city", nullable = false, length = 255)
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

@@ -25,6 +25,9 @@ public class UserServiceImpl implements UserService {
         userEntity.setName(userRegister.getUsername());
         userEntity.setUserType(UserType.NORMAL);
         userEntity.setPassword(userRegister.getPassword());
+        /*新指标*/
+        userEntity.setAge(userRegister.getAge());
+        userEntity.setCity(userRegister.getCity());
         try {
             userDao.save(userEntity);
             return true;

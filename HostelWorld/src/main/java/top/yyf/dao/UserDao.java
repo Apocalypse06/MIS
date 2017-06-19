@@ -9,4 +9,13 @@ import top.yyf.entity.UserEntity;
  */
 @Repository
 public class UserDao extends BaseDao<UserEntity, String> {
+
+    /**
+     * 根据月份获得各会员的消费总额
+     * @param month
+     * @return
+     */
+//    public List<UserMonthlyCostRetMess> getAllUserMonthlyCost(String month){
+//
+//    }
 }

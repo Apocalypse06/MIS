@@ -34,7 +34,9 @@ public class RoomServiceImpl implements RoomService {
     public Map<String, List<RoomRetMess>> getRoomInfos(String hotelId, RoomQuery roomQuery) {
         String type = roomQuery.getRoomType();
         Integer isEmpty = roomQuery.getRoomState();
-        List<ActualRoomEntity> actualRoomEntities = actualRoomDao.getRooms(hotelId);
+//        List<ActualRoomEntity> actualRoomEntities = actualRoomDao.getRooms(hotelId);
+        List<ActualRoomEntity> actualRoomEntities = actualRoomDao.getLatestRooms(hotelId);
+
         if (type != null) {
             actualRoomEntities = actualRoomEntities.stream().filter(e -> e.getRpId().getRoomType()
                     .equals(type)).collect(Collectors.toList());
@@ -110,7 +112,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public boolean deleteRoomPlan(int rpId) {
-        roomPlanDao.deleteById(rpId);
+//        roomPlanDao.deleteById(rpId);
         return true;
     }
 

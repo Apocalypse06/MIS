@@ -29,6 +29,8 @@ public class HotelRegister {
      */
     private String address;
 
+    private String address_city;
+
     public String getPassword() {
         return password;
     }
@@ -67,5 +69,13 @@ public class HotelRegister {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getAddress_city() {
+        return address_city;
+    }
+
+    public void setAddress_city(String address_city) {
+        this.address_city = address_city;
     }
 }

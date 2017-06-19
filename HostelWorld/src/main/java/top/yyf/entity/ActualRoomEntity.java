@@ -17,6 +17,8 @@ public class ActualRoomEntity {
     private RoomPlanEntity rpId;
     private List<CheckInEntity> checkIns;
 
+    private Byte isOnceUsed;
+
     @Id
     @GeneratedValue
     @Column(name = "room_id", nullable = false)
@@ -55,6 +57,16 @@ public class ActualRoomEntity {
 
     public void setIsempty(Byte isempty) {
         this.isempty = isempty;
+    }
+
+    @Basic
+    @Column(name = "isonceused", nullable = true)
+    public Byte getIsOnceUsed() {
+        return isOnceUsed;
+    }
+
+    public void setIsOnceUsed(Byte isOnceUsed) {
+        this.isOnceUsed = isOnceUsed;
     }
 
     @Override

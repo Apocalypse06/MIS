@@ -20,6 +20,8 @@ public class HotelEntity {
     private List<ReservationEntity> reservations;
     private List<RoomPlanEntity> roomPlans;
 
+    private String address_city;
+
     @Id
     @Column(name = "hotel_id", nullable = false, length = 7)
     public String getHotelId() {
@@ -78,6 +80,16 @@ public class HotelEntity {
 
     public void setIsPassed(Byte isPassed) {
         this.isPassed = isPassed;
+    }
+
+    @Basic
+    @Column(name = "address_city", nullable = true, length = 255)
+    public String getAddress_city() {
+        return address_city;
+    }
+
+    public void setAddress_city(String address_city) {
+        this.address_city = address_city;
     }
 
     @Override

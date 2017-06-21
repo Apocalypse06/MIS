@@ -8,10 +8,7 @@ import top.yyf.mess.input.CheckIn;
 import top.yyf.mess.input.HotelQuery;
 import top.yyf.mess.input.HotelRegister;
 import top.yyf.mess.retmess.*;
-import top.yyf.service.CheckInOutService;
-import top.yyf.service.HotelService;
-import top.yyf.service.ReservationService;
-import top.yyf.service.TokenManager;
+import top.yyf.service.*;
 import top.yyf.util.ErrorCode;
 import top.yyf.util.ParaNames;
 
@@ -35,6 +32,8 @@ public class HotelController {
     ReservationService reservationService;
     @Autowired
     CheckInOutService checkInOutService;
+    @Autowired
+    HotelBusinessConditionService hotelBusinessConditionService;
 
     /**
      * 酒店注册
@@ -276,6 +275,64 @@ public class HotelController {
                     .getUnPassedHotels();
             if (hotelRetMesses != null) {
                 baseMessage.setRetContent(hotelRetMesses);
+                baseMessage.setRetCode(ErrorCode.SUCCESS);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            baseMessage.setRetCodeAndMess(ErrorCode.SERVERFAIL, "服务器错误");
+        }
+        return new Gson().toJson(baseMessage);
+    }
+
+
+    @RequestMapping(value = "/auth/hotel/business_his", produces = "application/json;" +
+            "charset=UTF-8")
+    public String hotelBusinessInfo(HttpServletRequest request) {
+        BaseMessage<List<BusinessInfo>> baseMessage = new BaseMessage<>();
+        String hotelId = (String) request.getAttribute(ParaNames.ID_NAME);
+        try {
+            List<BusinessInfo> hotelRetMesses = hotelBusinessConditionService.getBusinessInfos(hotelId);
+
+            if (hotelRetMesses != null) {
+                baseMessage.setRetContent(hotelRetMesses);
+                baseMessage.setRetCode(ErrorCode.SUCCESS);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            baseMessage.setRetCodeAndMess(ErrorCode.SERVERFAIL, "服务器错误");
+        }
+        return new Gson().toJson(baseMessage);
+    }
+
+    @RequestMapping(value = "/auth/hotel/placenumber_his", produces = "application/json;" +
+            "charset=UTF-8")
+    public String hotelPlaceNumberInfo(HttpServletRequest request) {
+        BaseMessage<List<PlaceNumber>> baseMessage = new BaseMessage<>();
+        String hotelId = (String) request.getAttribute(ParaNames.ID_NAME);
+        try {
+            List<PlaceNumber> placeNumberList = hotelBusinessConditionService.getPlaceNumber(hotelId);
+
+            if (placeNumberList != null) {
+                baseMessage.setRetContent(placeNumberList);
+                baseMessage.setRetCode(ErrorCode.SUCCESS);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            baseMessage.setRetCodeAndMess(ErrorCode.SERVERFAIL, "服务器错误");
+        }
+        return new Gson().toJson(baseMessage);
+    }
+
+    @RequestMapping(value = "/auth/hotel/agenumber_his", produces = "application/json;" +
+            "charset=UTF-8")
+    public String hotelAgeNumberInfo(HttpServletRequest request) {
+        BaseMessage<List<AgeNumber>> baseMessage = new BaseMessage<>();
+        String hotelId = (String) request.getAttribute(ParaNames.ID_NAME);
+        try {
+            List<AgeNumber> ageNumberList = hotelBusinessConditionService.getAgeNumber(hotelId);
+
+            if (ageNumberList != null) {
+                baseMessage.setRetContent(ageNumberList);
                 baseMessage.setRetCode(ErrorCode.SUCCESS);
             }
         } catch (Exception e) {

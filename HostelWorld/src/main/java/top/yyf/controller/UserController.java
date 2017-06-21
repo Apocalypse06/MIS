@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import top.yyf.mess.input.UserRegister;
 import top.yyf.mess.retmess.BaseMessage;
+import top.yyf.mess.retmess.UserCosts;
 import top.yyf.mess.retmess.UserRetMess;
+import top.yyf.service.PersonalIndicatorsService;
 import top.yyf.service.TokenManager;
 import top.yyf.service.UserService;
 import top.yyf.util.ErrorCode;
@@ -27,6 +29,8 @@ public class UserController {
     TokenManager tokenManager;
     @Autowired
     UserService userService;
+    @Autowired
+    PersonalIndicatorsService personalIndicatorsService;
 
     /**
      * 普通用户注册
@@ -86,4 +90,21 @@ public class UserController {
         System.out.println(new Gson().toJson(baseMessage));
         return new Gson().toJson(baseMessage);
     }
+
+    @RequestMapping(value = "/auth/user/monthCostInfos", produces = "application/json;charset=UTF-8")
+    public String getMonthCostInfos(HttpServletRequest request, HttpServletResponse response) {
+        BaseMessage<UserRetMess> baseMessage = new BaseMessage<>();
+        String username = (String) request.getAttribute(ID_NAME);
+
+        UserCosts userCosts = personalIndicatorsService.getUserCosts(username);
+
+        UserRetMess userRetMess = userService.getUserInfo(username);
+        if (userRetMess != null) {
+            baseMessage.setRetCode(ErrorCode.SUCCESS);
+            baseMessage.setRetContent(userRetMess);
+        }
+        return new Gson().toJson(baseMessage);
+    }
+
+
 }

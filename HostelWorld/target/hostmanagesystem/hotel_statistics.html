@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="dist/css/ionicons-2.0.1/css/ionicons.css">
 
     <link rel="stylesheet" href="dist/css/bootstrap-datetimepicker.css">
+
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -79,38 +80,36 @@
         <div class="panel-heading">
             <h3 class="panel-title">历史经营情况</h3>
         </div>
-        <div class="panel-body hotel-home-panel">
+        <div class="panel-body hotel-home-panel" >
 
-            <div id="history_business"></div>
+            <div id="history_business" style="height: 300px;"></div>
+            <div id="history_business_occ" style="height: 300px;"></div>
+            <div id="history_business_revpar" style="height: 300px;"></div>
 
-            <script type="text/javascript">
-                // 基于准备好的dom，初始化echarts实例
-                var myChart = echarts.init(document.getElementById('history_business'));
 
-                // 指定图表的配置项和数据
-                var option = {
-                    title: {
-                        text: 'ECharts 入门示例'
-                    },
-                    tooltip: {},
-                    legend: {
-                        data:['销量']
-                    },
-                    xAxis: {
-                        data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-                    },
-                    yAxis: {},
-                    series: [{
-                        name: '销量',
-                        type: 'bar',
-                        data: [5, 20, 36, 10, 10, 20]
-                    }]
-                };
+        </div>
+    </div>
 
-                // 使用刚指定的配置项和数据显示图表。
-                myChart.setOption(option);
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">历史入住人情况</h3>
+        </div>
+        <div class="panel-body hotel-home-panel" >
+            <div style="height: 300px;">
 
-            </script>
+                <div class="container">
+                    <div class="row clearfix">
+                        <div class="col-md-6 column" >
+                            <div id="user_placeNumber" style="height: 300px;"></div>
+                        </div>
+
+                        <div class="col-md-6 column" >
+                            <div id="user_ageNumber" style="height: 300px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
     </div>
@@ -151,6 +150,7 @@
 
 
 </body>
+
 <script src="dist/js/jquery-3.1.1.js"></script>
 <script src="dist/js/jquery.form.js"></script>
 <script src="dist/js/jquery.cookie.js"></script>
@@ -169,6 +169,10 @@
 
     $(document).ready(function () {
         loadHistoryInfo()
+        loadBusiness()
+
+        loadPlaceNumberPie()
+        loadAgeNumberPie()
     })
     function loadHistoryInfo() {
         customAjax('/api/auth/hotel/financial_his', tokenArray, function (infos) {
@@ -184,8 +188,281 @@
             $('#hotel_income').html(nodeList.join(""))
         })
     }
+
+    function loadBusiness() {
+        customAjax('/api/auth/hotel/business_his', tokenArray, function (infos) {
+            var dateData = getArray(infos, 'date')
+            var ADRs = getArray(infos, 'ADR')
+            var OCCs = getArray(infos, 'OCC')
+            var REVPARs = getArray(infos, 'REVPAR')
+
+            var option = {
+
+                title: {
+                    text: '平均房价ADR'
+                },
+                tooltip: {},
+                legend: {
+                    data:['平均房价ADR']
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: dateData
+                },
+                yAxis: {},
+                series: [{
+                    name: 'ADR',
+                    type: 'line',
+                    data: ADRs,
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: '{c}元'
+                        }
+                    },
+//                    markPoint: {
+//                        data: [
+//                            {type: 'max', name: '最大值'},
+//                            {type: 'min', name: '最小值'}
+//                        ]
+//                    },
+                    markLine: {
+                        data: [
+                            {type: 'average', name: '平均值'}
+                        ]
+                    }
+                }
+                ]
+
+            }
+
+            var optionOCC = {
+                title: {
+                    text: '入住率OCC'
+                },
+                tooltip: {},
+                legend: {
+                    data:['入住率OCC']
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: dateData
+                },
+                yAxis: {},
+                series: [
+                    {
+                        name: 'OCC',
+                        type: 'line',
+                        data: OCCs,
+                        label: {
+                            normal: {
+                                show: true,
+                                formatter: '{c}'
+                            }
+                        },
+//                        markPoint: {
+//                            data: [
+//                                {type: 'max', name: '最大值'},
+//                                {type: 'min', name: '最小值'}
+//                            ]
+//                        },
+                        markLine: {
+                            data: [
+                                {type: 'average', name: '平均值'}
+                            ]
+                        }
+                }]
+            }
+
+            var optionREVPAR = {
+                title: {
+                    text: '平均每间可售房收入REVPAR'
+                },
+                tooltip: {},
+                legend: {
+                    data:['平均每间可售房收入REVPAR']
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: dateData
+                },
+                yAxis: {},
+                series: [
+                    {
+                        name: 'REVPAR',
+                        type: 'line',
+                        data: REVPARs,
+                        label: {
+                            normal: {
+                                show: true,
+                                formatter: '{c}元'
+                            }
+                        },
+//                        markPoint: {
+//                            data: [
+//                                {type: 'max', name: '最大值'},
+//                                {type: 'min', name: '最小值'}
+//                            ]
+//                        },
+                        markLine: {
+                            data: [
+                                {type: 'average', name: '平均值'}
+                            ]
+                        }
+                    }]
+            }
+
+            var myChart = echarts.init(document.getElementById('history_business'));
+            myChart.setOption(option);
+
+            var occChart = echarts.init(document.getElementById('history_business_occ'));
+            occChart.setOption(optionOCC);
+
+            var revparChart = echarts.init(document.getElementById('history_business_revpar'));
+            revparChart.setOption(optionREVPAR);
+
+        })
+    }
+    
+    function loadPlaceNumberPie() {
+        customAjax('/api/auth/hotel/placenumber_his', tokenArray, function (infos) {
+            var placeData = getArray(infos, 'place')
+            var numbers = getArray(infos, 'number')
+            var placeData2 = getArray(infos, 'place')
+            var numbers2 = getArray(infos, 'number')
+
+            var option = {
+
+                title: {
+                    text: '入住人地域分布',
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+//                legend: {
+//                    orient: 'vertical',
+//                    x: 'right',
+//                    data: ['重庆', '苏州', '南京', '扬州', '徐州']
+//                },
+                series: [{
+                    name: '地域分布',
+                    type: 'pie',
+                    selectedMode: 'single',
+                    radius: [0, '37%'],
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    data:[
+                        {value:numbers.pop(), name:placeData.pop(), selected:true},
+                        {value:numbers.pop(), name:placeData.pop()},
+                        {value:numbers.pop(), name:placeData.pop()},
+                        {value:numbers.pop(), name:placeData.pop()},
+                        {value:numbers.pop(), name:placeData.pop()}
+
+                    ]
+                },{
+                    name: '地域分布',
+                    type: 'pie',
+                    radius: ['50%', '70%'],
+
+                    data:[
+                        {value:numbers2.pop(), name:placeData2.pop()},
+                        {value:numbers2.pop(), name:placeData2.pop()},
+                        {value:numbers2.pop(), name:placeData2.pop()},
+                        {value:numbers2.pop(), name:placeData2.pop()},
+                        {value:numbers2.pop(), name:placeData2.pop()}
+
+                    ]
+                }]
+
+            }
+
+            var myChart = echarts.init(document.getElementById('user_placeNumber'));
+            myChart.setOption(option);
+
+        })
+    }
+
+    function loadAgeNumberPie() {
+        customAjax('/api/auth/hotel/agenumber_his', tokenArray, function (infos) {
+            var ageData = getArray(infos, 'age')
+            var numbers = getArray(infos, 'number')
+
+            var ageData2 = getArray(infos, 'age')
+            var numbers2 = getArray(infos, 'number')
+
+            var option = {
+
+                title: {
+                    text: '入住人年龄分布',
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+//                legend: {
+//                    orient: 'vertical',
+//                    x: 'roght',
+//                    data:['20岁以下', '20~30岁', '30~40岁', '40~50岁', '50岁以上']
+//                },
+                series: [{
+                    name: '年龄分布',
+                    type: 'pie',
+                    selectedMode: 'single',
+                    radius: [0, '37%'],
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    data:[
+                        {value:numbers.pop(), name:ageData.pop(), selected:true},
+                        {value:numbers.pop(), name:ageData.pop()},
+                        {value:numbers.pop(), name:ageData.pop()},
+                        {value:numbers.pop(), name:ageData.pop()},
+                        {value:numbers.pop(), name:ageData.pop()}
+
+                    ]
+                },{
+                    name: '年龄分布',
+                    type: 'pie',
+                    radius: ['50%', '70%'],
+
+                    data:[
+                        {value:numbers2.pop(), name:ageData2.pop()},
+                        {value:numbers2.pop(), name:ageData2.pop()},
+                        {value:numbers2.pop(), name:ageData2.pop()},
+                        {value:numbers2.pop(), name:ageData2.pop()},
+                        {value:numbers2.pop(), name:ageData2.pop()}
+
+                    ]
+                }]
+
+            }
+
+            var myChart = echarts.init(document.getElementById('user_ageNumber'));
+            myChart.setOption(option);
+
+        })
+
+    }
+
 </script>
-
-
 
 </html>

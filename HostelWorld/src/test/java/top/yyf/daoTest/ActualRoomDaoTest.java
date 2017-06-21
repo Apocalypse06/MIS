@@ -8,6 +8,7 @@ import top.yyf.entity.ActualRoomEntity;
 import top.yyf.util.ApplicationContextHelper;
 import top.yyf.util.BeforeTest;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -44,6 +45,11 @@ public class ActualRoomDaoTest {
      */
     @Test
     public void testGetEmptyRoom() throws Exception {
+        List<String> strings = actualRoomDao.getHotelIdsByEmptyRoom(LocalDate.now().toString(), LocalDate.now().toString());
+
+        for(String str:strings){
+            System.out.println(str);
+        }
     }
 
     @Test

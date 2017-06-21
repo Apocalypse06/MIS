@@ -122,10 +122,70 @@
     <!--财务状况-->
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">财务信息</h3>
+            <h3 class="panel-title">平台财务信息</h3>
         </div>
         <div class="panel-body hotel-home-panel">
             <div id="chart" style="height: 300px;"></div>
+
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">客栈营业额及增长率</h3>
+        </div>
+
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div class="tabbable" id="tabs-194877">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#panel-495617" data-toggle="tab">Hotel h000001</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-682297" data-toggle="tab">Hotel h000002</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="panel-495617">
+                                    <div class="panel-body hotel-home-panel">
+                                        <div id="turnoverBarH000001" style="height: 500px;"></div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="panel-682297">
+                                    <div class="panel-body hotel-home-panel">
+                                        <div id="turnoverBarH000002" style="height: 500px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">客栈收入统计</h3>
+        </div>
+        <div class="panel-body hotel-home-panel">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <td>酒店号</td>
+                    <td>所在城市</td>
+                    <td>加盟时间</td>
+                    <td>当前月份</td>
+                    <td>当前营业额</td>
+                </tr>
+                </thead>
+                <tbody id="hotelTurnover">
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -139,6 +199,16 @@
         <td>$totalRooms$</td>
         <td>$leftRooms$</td>
         <td>$radio$</td>
+    </tr>
+</textarea>
+
+<textarea id="hotelTurnover_info_template" style="display: none">
+    <tr>
+        <td>$hotelId$</td>
+        <td>$city$</td>
+        <td>$joindate$</td>
+        <td>$curMonth$</td>
+        <td>$curTurnover$</td>
     </tr>
 </textarea>
 
@@ -201,24 +271,58 @@
         customAjax('/api/auth/manager/financial', tokenArray, function (infos) {
             var dateData = getArray(infos, 'date')
             var membershipIncome = getArray(infos, 'member_income')
+            var cashIncome = getArray(infos, 'cash_income')
+            var totalIncome = getArray(infos, 'total_income')
             var option = {
 
                 title: {
-                    text: '收入情况'
+                    text: '总收入情况'
                 },
                 tooltip: {},
+                toolbox: {
+                    feature: {
+                        dataView: {show: true, readOnly: false},
+                        magicType: {show: true, type: ['line', 'bar']},
+                        restore: {show: true},
+                        saveAsImage: {show: true}
+                    }
+                },
+                legend: {
+                    data:['总收入', '现金收入','会员卡收入']
+                },
                 xAxis: {
                     data: dateData
                 },
                 yAxis: {},
-                series: [{
-                    name: 'macd',
-                    type: 'line',
+                series: [
+                    {
+                        name: '现金收入',
+                        type: 'bar',
+                        data: cashIncome,
+                        label: {
+                            normal: {
+                                show: true,
+                                formatter: '{c}'
+                            }
+                        }
+                    },{
+                        name: '总收入',
+                        type: 'line',
+                        data: totalIncome,
+                        label: {
+                            normal: {
+                                show: true,
+                                formatter: '{c}'
+                            }
+                        }
+                    },{
+                    name: '会员卡收入',
+                    type: 'bar',
                     data: membershipIncome,
                     label: {
                         normal: {
                             show: true,
-                            formatter: '{c}元'
+                            formatter: '{c}'
                         }
                     }
                 }]
@@ -243,6 +347,189 @@
                 )
             })
             $('#hotelroominfo').html(nodeList.join(""))
+        })
+    }
+</script>
+
+<script>
+    var tokenArray = getTokenArray()
+    var hotelTurnover_info_template = $('#hotelTurnover_info_template').val();
+
+    $(document).ready(function () {
+        loadHotelTurnoverInfo()
+        loadHotelTurnoverBar()
+        loadHotelTurnoverBar2()
+    })
+
+    function loadHotelTurnoverInfo() {
+        customAjax('api/auth/manager/hotelturnoverinfo', tokenArray, function (infos) {
+            var nodeList = []
+            infos.forEach(function (e) {
+                nodeList.push(
+                        hotelTurnover_info_template.replace('$hotelId$', e.hotel)
+                                .replace('$city$', e.city)
+                                .replace('$joindate$', e.joinDate)
+                                .replace('$curMonth$', e.currentMonth)
+                                .replace('$curTurnover$', e.currentTurnover)
+
+                )
+            })
+            $('#hotelTurnover').html(nodeList.join(""))
+        })
+
+    }
+
+    function loadHotelTurnoverBar(){
+        customAjax('api/auth/manager/hotelturnoverinfoById', tokenArray, function (infos) {
+
+            var dateData = getArray(infos, 'month')
+            var turnover = getArray(infos, 'turnover')
+            var increase = getArray(infos, 'increase')
+            var option = {
+
+                title: {},
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        crossStyle: {
+                            color: '#999'
+                        }
+                    }
+                },
+                toolbox: {
+                    feature: {
+                        dataView: {show: true, readOnly: false},
+                        magicType: {show: true, type: ['line', 'bar']},
+                        restore: {show: true},
+                        saveAsImage: {show: true}
+                    }
+                },
+                legend: {
+                    data:['营业额', '增长率']
+                },
+                xAxis: {
+                    type: 'category',
+                    data: dateData,
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '',
+                        min: 0,
+                        max: 3500,
+                        interval: 500,
+                        axisLabel: {
+                            formatter: '{value} 元'
+                        }
+                    },
+                    {
+                        type: 'value',
+                        name: '',
+                        min: -2,
+                        max: 8,
+                        interval: 1,
+                        axisLabel: {
+                            formatter: '{value}'
+                        }
+                    }
+                ],
+                series: [{
+                    name: '营业额',
+                    type: 'bar',
+                    data: turnover
+                },{
+                    name: '增长率',
+                    type: 'line',
+                    yAxisIndex: 1,
+                    data: increase
+                }]
+
+            }
+
+            var myChart = echarts.init(document.getElementById('turnoverBarH000001'));
+            myChart.setOption(option);
+
+        })
+    }
+
+    function loadHotelTurnoverBar2(){
+        customAjax('api/auth/manager/hotelturnoverinfoById2', tokenArray, function (infos) {
+
+            var dateData = getArray(infos, 'month')
+            var turnover = getArray(infos, 'turnover')
+            var increase = getArray(infos, 'increase')
+            var option = {
+
+                title: {},
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        crossStyle: {
+                            color: '#999'
+                        }
+                    }
+                },
+                toolbox: {
+                    feature: {
+                        dataView: {show: true, readOnly: false},
+                        magicType: {show: true, type: ['line', 'bar']},
+                        restore: {show: true},
+                        saveAsImage: {show: true}
+                    }
+                },
+                legend: {
+                    data:['营业额', '增长率']
+                },
+                xAxis: {
+                    type: 'category',
+                    data: dateData,
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '',
+                        min: 0,
+                        max: 3500,
+                        interval: 500,
+                        axisLabel: {
+                            formatter: '{value} 元'
+                        }
+                    },
+                    {
+                        type: 'value',
+                        name: '',
+                        min: -2,
+                        max: 8,
+                        interval: 1,
+                        axisLabel: {
+                            formatter: '{value}'
+                        }
+                    }
+                ],
+                series: [{
+                    name: '营业额',
+                    type: 'bar',
+                    data: turnover
+                },{
+                    name: '增长率',
+                    type: 'line',
+                    yAxisIndex: 1,
+                    data: increase
+                }]
+
+            }
+
+            var myChart = echarts.init(document.getElementById('turnoverBarH000002'));
+            myChart.setOption(option);
+
         })
     }
 </script>

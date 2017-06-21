@@ -1,6 +1,7 @@
 package top.yyf.service;
 
-import top.yyf.entity.UserMonthlyCostEntity;
+import top.yyf.mess.retmess.UserCosts;
+import top.yyf.mess.retmess.UserMonthlyCostRetMess;
 
 import java.util.List;
 
@@ -18,6 +19,8 @@ public interface PersonalIndicatorsService {
      * @param month
      * @return
      */
-    List<UserMonthlyCostEntity> getAllUserMonthlyCost(String month);
+    List<UserMonthlyCostRetMess> getAllUserMonthlyCost(String month);
+
+    UserCosts getUserCosts(String userId);
 
 }

@@ -19,7 +19,7 @@ public class ActualRoomDao extends BaseDao<ActualRoomEntity, Integer> {
      * @return {@link ActualRoomEntity}的List
      */
     public List<ActualRoomEntity> getActualRoomsByRoomPlan(int roomPlanId) {
-        return getListByHQL("from ActualRoomEntity where rpId.id=?", roomPlanId);
+        return getListByHQL("from ActualRoomEntity where rpId.rpId=?", roomPlanId);
     }
 
 
@@ -105,6 +105,8 @@ public class ActualRoomDao extends BaseDao<ActualRoomEntity, Integer> {
         return getSession().createSQLQuery(sql).setParameter(0, hotel).setParameter(1, "%-"+month+"-%").list();
 
     }
+
+
 
 
 }

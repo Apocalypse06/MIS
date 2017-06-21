@@ -3,7 +3,8 @@ package top.yyf.service.implTest;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import top.yyf.entity.UserMonthlyCostEntity;
+import top.yyf.mess.retmess.UserCosts;
+import top.yyf.mess.retmess.UserMonthlyCostRetMess;
 import top.yyf.service.PersonalIndicatorsService;
 import top.yyf.util.ApplicationContextHelper;
 import top.yyf.util.BeforeTest;
@@ -39,10 +40,16 @@ public class PersonalIndicatorsServiceImplTest {
     @Test
     public void testGetAllUserMonthlyCost() throws Exception {
 
-        List<UserMonthlyCostEntity> res = personalIndicatorsService.getAllUserMonthlyCost("03");
-        for(UserMonthlyCostEntity retMess : res){
+        List<UserMonthlyCostRetMess> res = personalIndicatorsService.getAllUserMonthlyCost("06");
+        for(UserMonthlyCostRetMess retMess : res){
             System.out.println(retMess.getUserId()+" "+retMess.getCost()+" "+retMess.getDate());
         }
+    }
+
+    @Test
+    public void testgetUserCosts() throws  Exception {
+        UserCosts userCosts = personalIndicatorsService.getUserCosts("m000001");
+        System.out.println(userCosts.march_cost+" "+userCosts.forth_cost);
     }
 
 

@@ -21,6 +21,7 @@ public class HotelEntity {
     private List<RoomPlanEntity> roomPlans;
 
     private String address_city;
+    private String set_up_date;
 
     @Id
     @Column(name = "hotel_id", nullable = false, length = 7)
@@ -90,6 +91,16 @@ public class HotelEntity {
 
     public void setAddress_city(String address_city) {
         this.address_city = address_city;
+    }
+
+    @Basic
+    @Column(name = "set_up_date", nullable = true, length = 255)
+    public String getSet_up_date() {
+        return set_up_date;
+    }
+
+    public void setSet_up_date(String set_up_date) {
+        this.set_up_date = set_up_date;
     }
 
     @Override

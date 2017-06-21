@@ -1,5 +1,9 @@
 package top.yyf.service;
 
+import top.yyf.mess.retmess.*;
+
+import java.util.List;
+
 /**
  * Created by Crystal on 2017/6/18.
  * 酒店经营情况相关计算
@@ -29,5 +33,24 @@ public interface HotelBusinessConditionService {
      * @return
      */
     double getREVPAR(String hotel, String month_quanter);
+
+    List<BusinessInfo> getBusinessInfos(String hotel);
+
+    List<PlaceNumber> getPlaceNumber(String hotel);
+
+    List<AgeNumber> getAgeNumber(String hotel);
+
+    /**
+     * （经理）获得不同hotel的营业信息
+     * @return
+     */
+    List<HotelTurnoverMess> getHotelTurnoverMess();
+
+    /**
+     * 根据id获得客栈营业额和增长率
+     * @param hotelId
+     * @return
+     */
+    List<HotelTurnoverIncrease> getHotelTurnoverMessById(String hotelId);
 
 }

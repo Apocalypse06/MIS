@@ -156,6 +156,27 @@
         </div>
     </div>
 
+    <!--<div class="panel panel-default">-->
+        <!--<div class="panel-heading">-->
+            <!--<h3 class="panel-title">消费信息</h3>-->
+        <!--</div>-->
+        <!--<div class="panel-body">-->
+            <!--<table class="table table-hover">-->
+                <!--<thead>-->
+                <!--<tr>-->
+                    <!--<td>#</td>-->
+                    <!--<td>月份</td>-->
+                    <!--<td>消费金额</td>-->
+
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody id="monthCostInfos">-->
+
+                <!--</tbody>-->
+            <!--</table>-->
+        <!--</div>-->
+    <!--</div>-->
+
     <textarea style="display: none;" id="reservation_template">
         <tr id="$id$" onclick="showReservation(this.id)">
                     <td>$index$</td>
@@ -167,6 +188,15 @@
                     <td>$state$</td>
                 </tr>
     </textarea>
+
+    <!--<textarea style="display: none;" id="monthCost_template">-->
+        <!--<tr>-->
+            <!--<td>$index1$</td>-->
+            <!--<td>$month$</td>-->
+            <!--<td>$cost$</td>-->
+
+        <!--</tr>-->
+    <!--</textarea>-->
 
     <textarea style="display: none" id="success_reservation">
         <span class="label label-info">待入住</span>
@@ -532,4 +562,31 @@
         $('#stateChange').modal();
     }
 </script>
+
+<!--<script>-->
+    <!--var tokenArray = getTokenArray()-->
+    <!--var hotelroom_info_template = $('#monthCost_template').val();-->
+
+    <!--$(document).ready(function () {-->
+        <!--loadMonthCostInfo()-->
+    <!--})-->
+
+
+    <!--function loadMonthCostInfo() {-->
+        <!--customAjax('/api/auth/user/monthCostInfos', tokenArray, function (infos) {-->
+            <!--var nodeList = []-->
+            <!--infos.forEach(function (e) {-->
+                <!--nodeList.push(-->
+                        <!--hotelroom_info_template.replace('$hotelId$', e.hotelId)-->
+                                <!--.replace('$hotelName$', e.hotelName)-->
+                                <!--.replace('$totalRooms$', e.totalRoomNum)-->
+                                <!--.replace('$leftRooms$', e.usedRoomNum)-->
+                                <!--.replace('$radio$',-->
+                                        <!--(e.usedRoomNum / (e.totalRoomNum + 0.00000001) * 100).toFixed(2) + '%')-->
+                <!--)-->
+            <!--})-->
+            <!--$('#monthCostInfos').html(nodeList.join(""))-->
+        <!--})-->
+    <!--}-->
+<!--</script>-->
 </html>

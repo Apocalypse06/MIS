@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.yyf.mess.retmess.*;
+import top.yyf.service.HotelBusinessConditionService;
 import top.yyf.service.ManagerService;
 import top.yyf.service.TokenManager;
 import top.yyf.util.ErrorCode;
@@ -24,6 +25,8 @@ public class ManagerController {
     ManagerService managerService;
     @Autowired
     TokenManager tokenManager;
+    @Autowired
+    HotelBusinessConditionService hotelBusinessConditionService;
 
     /**
      * 通过酒店的申请
@@ -195,4 +198,58 @@ public class ManagerController {
         }
         return new Gson().toJson(baseMessage);
     }
+
+    @RequestMapping(value = "/auth/manager/hotelturnoverinfo", produces = "application/json;" +
+            "charset=UTF-8")
+    public String hotelTurnoverInfo(HttpServletRequest request) {
+        BaseMessage<List<HotelTurnoverMess>> baseMessage = new BaseMessage<>();
+        try {
+            List<HotelTurnoverMess> hotelRetMesses = hotelBusinessConditionService.getHotelTurnoverMess();
+            if (hotelRetMesses != null) {
+                baseMessage.setRetContent(hotelRetMesses);
+                baseMessage.setRetCode(ErrorCode.SUCCESS);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            baseMessage.setRetCodeAndMess(ErrorCode.SERVERFAIL, "服务器错误");
+        }
+        return new Gson().toJson(baseMessage);
+    }
+
+    @RequestMapping(value = "/auth/manager/hotelturnoverinfoById", produces = "application/json;" +
+            "charset=UTF-8")
+    public String hotelTurnoverInfoById(HttpServletRequest request) {
+        BaseMessage<List<HotelTurnoverIncrease>> baseMessage = new BaseMessage<>();
+        try {
+            List<HotelTurnoverIncrease> hotelRetMesses = hotelBusinessConditionService.getHotelTurnoverMessById("h000001");
+            if (hotelRetMesses != null) {
+                baseMessage.setRetContent(hotelRetMesses);
+                baseMessage.setRetCode(ErrorCode.SUCCESS);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            baseMessage.setRetCodeAndMess(ErrorCode.SERVERFAIL, "服务器错误");
+        }
+        return new Gson().toJson(baseMessage);
+    }
+
+    @RequestMapping(value = "/auth/manager/hotelturnoverinfoById2", produces = "application/json;" +
+            "charset=UTF-8")
+    public String hotelTurnoverInfoById2(HttpServletRequest request) {
+        BaseMessage<List<HotelTurnoverIncrease>> baseMessage = new BaseMessage<>();
+        try {
+            List<HotelTurnoverIncrease> hotelRetMesses = hotelBusinessConditionService.getHotelTurnoverMessById("h000002");
+            if (hotelRetMesses != null) {
+                baseMessage.setRetContent(hotelRetMesses);
+                baseMessage.setRetCode(ErrorCode.SUCCESS);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            baseMessage.setRetCodeAndMess(ErrorCode.SERVERFAIL, "服务器错误");
+        }
+        return new Gson().toJson(baseMessage);
+    }
+
+
+
 }

@@ -11,7 +11,7 @@ public class UserMonthlyCostEntity {
     /**
      * id
      */
-    private int userMonthlyCostId;
+    private int cid;
     /**
      * 会员id
      */
@@ -25,6 +25,9 @@ public class UserMonthlyCostEntity {
      */
     private String date;
 
+    public UserMonthlyCostEntity() {
+    }
+
     public UserMonthlyCostEntity(String userId, String cost, String date) {
         this.userId = userId;
         this.cost = cost;
@@ -33,17 +36,17 @@ public class UserMonthlyCostEntity {
 
     @Id
     @GeneratedValue
-    @Column(name = "userMonthlyCost_id", nullable = false)
-    public int getUserMonthlyCostId() {
-        return userMonthlyCostId;
+    @Column(name = "cid", nullable = false)
+    public int getCid() {
+        return cid;
     }
 
-    public void setUserMonthlyCostId(int userMonthlyCostId) {
-        this.userMonthlyCostId = userMonthlyCostId;
+    public void setCid(int cid) {
+        this.cid = cid;
     }
 
     @Basic
-    @Column(name = "user_id", nullable = false, length = 255)
+    @Column(name = "user_id", nullable = true, length = 255)
     public String getUserId() {
         return userId;
     }
